@@ -1,0 +1,882 @@
+///////////////////////////////////////
+//////////////////////////////////////////////// FUNCTIONS!!!
+///////////////////////////////////////
+
+
+// Bootstrap functions
+//
+// Utility mixins and functions for evaluating source code across our variables, maps, and mixins.
+
+// Ascending
+// Used to evaluate Sass maps like our grid breakpoints.
+@mixin _assert-ascending($map, $map-name) {
+    $prev-key: null;
+    $prev-num: null;
+    @each $key, $num in $map {
+      @if $prev-num == null or unit($num) == "%" or unit($prev-num) == "%" {
+        // Do nothing
+      } @else if not comparable($prev-num, $num) {
+        @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+      } @else if $prev-num >= $num {
+        @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+      }
+      $prev-key: $key;
+      $prev-num: $num;
+    }
+  }
+
+  // Starts at zero
+  // Used to ensure the min-width of the lowest breakpoint starts at 0.
+  @mixin _assert-starts-at-zero($map, $map-name: "$grid-breakpoints") {
+    $values: map-values($map);
+    $first-value: nth($values, 1);
+    @if $first-value != 0 {
+      @warn "First breakpoint in #{$map-name} must start at 0, but starts at #{$first-value}.";
+    }
+  }
+
+  // Internal Bootstrap function to turn maps into its negative variant.
+  // It prefixes the keys with `n` and makes the value negative.
+  @function negativify-map($map) {
+    $result: ();
+    @each $key, $value in $map {
+      @if $key != 0 {
+        $result: map-merge($result, ("n" + $key: (-$value)));
+      }
+    }
+    @return $result;
+  }
+
+  // Get multiple keys from a sass map
+  @function map-get-multiple($map, $values) {
+    $result: ();
+    @each $key, $value in $map {
+      @if (index($values, $key) != null) {
+        $result: map-merge($result, ($key: $value));
+      }
+    }
+    @return $map;
+  }
+
+  // Replace `$search` with `$replace` in `$string`
+  // Used on our SVG icon backgrounds for custom forms.
+  //
+  // @author Hugo Giraudel
+  // @param {String} $string - Initial string
+  // @param {String} $search - Substring to replace
+  // @param {String} $replace ('') - New value
+  // @return {String} - Updated string
+  @function str-replace($string, $search, $replace: "") {
+    $index: str-index($string, $search);
+
+    @if $index {
+      @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+  }
+
+  // See https://codepen.io/kevinweber/pen/dXWoRw
+  @function escape-svg($string) {
+    @if str-index($string, "data:image/svg+xml") {
+      @each $char, $encoded in $escaped-characters {
+        $string: str-replace($string, $char, $encoded);
+      }
+    }
+
+    @return $string;
+  }
+
+  // Color contrast
+  @function color-yiq($color, $dark: $yiq-text-dark, $light: $yiq-text-light) {
+    $r: red($color);
+    $g: green($color);
+    $b: blue($color);
+
+    $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+
+    @return if($yiq >= $yiq-contrasted-threshold, $dark, $light);
+  }
+
+  // Request a color level
+  @function color-level($color: $primary, $level: 0) {
+    $color-base: if($level > 0, $black, $white);
+    $level: abs($level);
+
+    @return mix($color-base, $color, $level * $theme-color-interval);
+  }
+
+
+  ///////////////////////////////////////
+  //////////////////////////////////////////////// VARIABLES!!!
+  ///////////////////////////////////////
+
+
+  // Variables
+  //
+  // Variables should follow the `$component-state-property-size` formula for
+  // consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+
+  // Options
+  //
+  // Quickly modify global styling by enabling or disabling optional features.
+
+  $enable-grid-classes:                         true !default;
+
+
+  // Spacing
+  //
+  // Control the default styling of most Bootstrap elements by modifying these
+  // variables. Mostly focused on spacing.
+  // You can add more entries to the $spacers map, should you need more variation.
+
+  $spacer: 1rem !default;
+  $spacers: () !default;
+  // stylelint-disable-next-line scss/dollar-variable-default
+  $spacers: map-merge(
+    (
+      0: 0,
+      1: $spacer * .25,
+      2: $spacer * .5,
+      3: $spacer,
+      4: $spacer * 1.5,
+      5: $spacer * 3,
+    ),
+    $spacers
+  );
+
+  $negative-spacers: negativify-map($spacers) !default;
+
+
+  // Grid breakpoints
+  //
+  // Define the minimum dimensions at which your layout will change,
+  // adapting to different screen sizes, for use in media queries.
+
+  $grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    // esto esta modificado! Más breakpoints
+    xxl: 1440px,
+    xxxl: 1740px
+  ) !default;
+
+  @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+  @include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
+
+
+  // Grid containers
+  //
+  // Define the maximum width of `.container` for different screen sizes.
+
+  $container-max-widths: (
+    sm: 680px,
+    md: 900px,
+    lg: 1080px,
+    xl: 1240px,
+    xxl: 1440px
+  ) !default;
+
+  @include _assert-ascending($container-max-widths, "$container-max-widths");
+
+
+  // Grid columns
+  //
+  // Set the number of columns and specify the width of the gutters.
+
+  $grid-columns:                12 !default;
+  $grid-gutter-width:           32px !default;
+
+
+  // Container padding
+
+    // esto esta modificado!
+  $container-padding-x: $grid-gutter-width * 2 !default;
+  $container-padding-y: $grid-gutter-width  !default;
+
+
+
+
+
+  ///////////////////////////////////////
+  //////////////////////////////////////////////// MIXIN BREAKPOINTS!!!
+  ///////////////////////////////////////
+
+
+  // Breakpoint viewport sizes and media queries.
+  //
+  // Breakpoints are defined as a map of (name: minimum width), order from small to large:
+  //
+  //    (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px)
+  //
+  // The map defined in the `$grid-breakpoints` global variable is used as the `$breakpoints` argument by default.
+
+  // Name of the next breakpoint, or null for the last breakpoint.
+  //
+  //    >> breakpoint-next(sm)
+  //    md
+  //    >> breakpoint-next(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+  //    md
+  //    >> breakpoint-next(sm, $breakpoint-names: (xs sm md lg xl))
+  //    md
+  @function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+    $n: index($breakpoint-names, $name);
+    @if not $n {
+      @error "breakpoint `#{$name}` not found in `#{$breakpoints}`";
+    }
+    @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+  }
+
+  // Minimum breakpoint width. Null for the smallest (first) breakpoint.
+  //
+  //    >> breakpoint-min(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+  //    576px
+  @function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+    $min: map-get($breakpoints, $name);
+    @return if($min != 0, $min, null);
+  }
+
+  // Maximum breakpoint width. Null for the largest (last) breakpoint.
+  // The maximum value is calculated as the minimum of the next one less 0.02px
+  // to work around the limitations of `min-` and `max-` prefixes and viewports with fractional widths.
+  // See https://www.w3.org/TR/mediaqueries-4/#mq-min-max
+  // Uses 0.02px rather than 0.01px to work around a current rounding bug in Safari.
+  // See https://bugs.webkit.org/show_bug.cgi?id=178261
+  //
+  //    >> breakpoint-max(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+  //    767.98px
+  @function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+    $next: breakpoint-next($name, $breakpoints);
+    @return if($next, breakpoint-min($next, $breakpoints) - .02, null);
+  }
+
+  // Returns a blank string if smallest breakpoint, otherwise returns the name with a dash in front.
+  // Useful for making responsive utilities.
+  //
+  //    >> breakpoint-infix(xs, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+  //    ""  (Returns a blank string)
+  //    >> breakpoint-infix(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+  //    "-sm"
+  @function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
+    @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
+  }
+
+  // Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+  // Makes the @content apply to the given breakpoint and wider.
+  @mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+    $min: breakpoint-min($name, $breakpoints);
+    @if $min {
+      @media (min-width: $min) {
+        @content;
+      }
+    } @else {
+      @content;
+    }
+  }
+
+  // Media of at most the maximum breakpoint width. No query for the largest breakpoint.
+  // Makes the @content apply to the given breakpoint and narrower.
+  @mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+    $max: breakpoint-max($name, $breakpoints);
+    @if $max {
+      @media (max-width: $max) {
+        @content;
+      }
+    } @else {
+      @content;
+    }
+  }
+
+  // Media that spans multiple breakpoint widths.
+  // Makes the @content apply between the min and max breakpoints
+  @mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints) {
+    $min: breakpoint-min($lower, $breakpoints);
+    $max: breakpoint-max($upper, $breakpoints);
+
+    @if $min != null and $max != null {
+      @media (min-width: $min) and (max-width: $max) {
+        @content;
+      }
+    } @else if $max == null {
+      @include media-breakpoint-up($lower, $breakpoints) {
+        @content;
+      }
+    } @else if $min == null {
+      @include media-breakpoint-down($upper, $breakpoints) {
+        @content;
+      }
+    }
+  }
+
+  // Media between the breakpoint's minimum and maximum widths.
+  // No minimum for the smallest breakpoint, and no maximum for the largest one.
+  // Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
+  @mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints) {
+    $min: breakpoint-min($name, $breakpoints);
+    $max: breakpoint-max($name, $breakpoints);
+
+    @if $min != null and $max != null {
+      @media (min-width: $min) and (max-width: $max) {
+        @content;
+      }
+    } @else if $max == null {
+      @include media-breakpoint-up($name, $breakpoints) {
+        @content;
+      }
+    } @else if $min == null {
+      @include media-breakpoint-down($name, $breakpoints) {
+        @content;
+      }
+    }
+  }
+
+
+  ///////////////////////////////////////
+  //////////////////////////////////////////////// MIXIN GRID FRAMEWORKS!!!
+  ///////////////////////////////////////
+
+
+  // Framework grid generation
+  //
+  // Used only by Bootstrap to generate the correct number of grid classes given
+  // any value of `$grid-columns`.
+
+  @mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+    // Common properties for all breakpoints
+    %grid-column {
+      position: relative;
+      width: 100%;
+      padding-right: $gutter / 2;
+      padding-left: $gutter / 2;
+    }
+
+    @each $breakpoint in map-keys($breakpoints) {
+      $infix: breakpoint-infix($breakpoint, $breakpoints);
+
+      // Allow columns to stretch full width below their breakpoints
+      @for $i from 1 through $columns {
+        .col#{$infix}-#{$i} {
+          @extend %grid-column;
+        }
+      }
+      .col#{$infix},
+      .col#{$infix}-auto {
+        @extend %grid-column;
+      }
+
+      @include media-breakpoint-up($breakpoint, $breakpoints) {
+        // Provide basic `.col-{bp}` classes for equal-width flexbox columns
+        .col#{$infix} {
+          flex-basis: 0;
+          flex-grow: 1;
+          max-width: 100%;
+        }
+        .col#{$infix}-auto {
+          flex: 0 0 auto;
+          width: auto;
+          max-width: 100%; // Reset earlier grid tiers
+        }
+
+        @for $i from 1 through $columns {
+          .col#{$infix}-#{$i} {
+            @include make-col($i, $columns);
+          }
+        }
+
+        // `$columns - 1` because offsetting by the width of an entire row isn't possible
+        @for $i from 0 through ($columns - 1) {
+          @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-0
+            .offset#{$infix}-#{$i} {
+              @include make-col-offset($i, $columns);
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  ///////////////////////////////////////
+  //////////////////////////////////////////////// MXIN GRID!!!
+  ///////////////////////////////////////
+
+
+  /// Grid system
+  //
+  // Generate semantic grid columns with these mixins.
+
+    // esto esta modificado!
+    @mixin make-container($padding-x: $container-padding-x, $padding-y: $container-padding-y) {
+      width: 100%;
+      padding-right: $padding-x;
+      padding-left: $padding-x;
+      margin-right: auto;
+      margin-left: auto;
+      // esto esta modificado! Añadido un padding menor en break-md
+      @media all and (max-width: 768px){
+        padding-right: $padding-y;
+        padding-left: $padding-y;
+      }
+    }
+
+
+    // For each breakpoint, define the maximum width of the container in a media query
+    @mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+      @each $breakpoint, $container-max-width in $max-widths {
+        @include media-breakpoint-up($breakpoint, $breakpoints) {
+          max-width: $container-max-width;
+        }
+      }
+    }
+
+    @mixin make-row($gutter: $grid-gutter-width) {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -$gutter / 2;
+      margin-left: -$gutter / 2;
+      // esto esta modificado!
+      width: 100%;
+      @media all and (max-width: 1700px){
+        width: auto;
+      }
+    }
+
+    @mixin make-col-ready($gutter: $grid-gutter-width) {
+      position: relative;
+      // Prevent columns from becoming too narrow when at smaller grid tiers by
+      // always setting `width: 100%;`. This works because we use `flex` values
+      // later on to override this initial width.
+      width: 100%;
+      padding-right: $gutter / 2;
+      padding-left: $gutter / 2;
+    }
+
+    @mixin make-col($size, $columns: $grid-columns) {
+      flex: 0 0 percentage($size / $columns);
+      // Add a `max-width` to ensure content within each column does not blow out
+      // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+      // do not appear to require this.
+      max-width: percentage($size / $columns);
+    }
+
+    @mixin make-col-offset($size, $columns: $grid-columns) {
+      $num: $size / $columns;
+      margin-left: if($num == 0, 0, percentage($num));
+    }
+
+
+  ///////////////////////////////////////
+  //////////////////////////////////////////////// MIXIN UTILITIES!!!
+  ///////////////////////////////////////
+
+
+  // Utility generator
+  // Used to generate utilities & print utilities
+  @mixin generate-utility($utility, $infix) {
+    $values: map-get($utility, values);
+
+    // If the values are a list or string, convert it into a map
+    @if type-of($values) == "string" or type-of(nth($values, 1)) != "list" {
+      $values: zip($values, $values);
+    }
+
+    @each $key, $value in $values {
+      $properties: map-get($utility, property);
+
+      // Multiple properties are possible, for example with vertical or horizontal margins or paddings
+      @if type-of($properties) == "string" {
+        $properties: append((), $properties);
+      }
+
+      // Use custom class if present
+      $property-class: map-get($utility, class);
+      $property-class: if($property-class, $property-class, nth($properties, 1));
+
+      // Don't prefix if value key is null (eg. with shadow class)
+      $property-class-modifier: if($key, "-" + $key, "");
+
+      .#{$property-class + $infix + $property-class-modifier} {
+        @each $property in $properties {
+          // stylelint-disable-next-line declaration-no-important
+          #{$property}: $value !important;
+        }
+      }
+    }
+  }
+
+
+  ///////////////////////////////////////
+  //////////////////////////////////////////////// GRID!!!
+  ///////////////////////////////////////
+
+
+  // Container widths
+  //
+  // Set the container width, and override it for fixed navbars in media queries.
+
+  @if $enable-grid-classes {
+    // Single container class with breakpoint max-widths
+    .container {
+      @include make-container();
+      @include make-container-max-widths();
+    }
+
+    // 100% wide container at all breakpoints
+    .container-fluid {
+      @include make-container();
+      display: block;
+      // esto esta modificado!
+      max-width: 1800px;
+      // display: inline-flex;
+      // esto esta modificado! Añadido un padding menor en break-md
+      @media all and (max-width: 1800px){
+        display: block;
+      }
+    }
+
+    .container-fluid-desktop {
+      @include make-container();
+      // esto esta modificado!
+      display: inline-flex;
+      // esto esta modificado! Añadido un padding menor en break-md
+      @media all and (max-width: 1800px){
+        display: block;
+      }
+    }
+
+    // Responsive containers that are 100% wide until a breakpoint
+    @each $breakpoint, $container-max-width in $container-max-widths {
+      .container-#{$breakpoint} {
+        @extend .container-fluid;
+      }
+
+      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+        %responsive-container-#{$breakpoint} {
+          max-width: $container-max-width;
+        }
+
+        @each $name, $width in $grid-breakpoints {
+          @if ($container-max-width > $width or $breakpoint == $name) {
+            .container#{breakpoint-infix($name, $grid-breakpoints)} {
+              @extend %responsive-container-#{$breakpoint};
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  // Row
+  //
+  // Rows contain your columns.
+
+  @if $enable-grid-classes {
+    .row {
+      @include make-row();
+    }
+
+    // Remove the negative margin from default .row, then the horizontal padding
+    // from all immediate children columns (to prevent runaway style inheritance).
+    .no-gutters {
+      margin-right: 0;
+      margin-left: 0;
+
+      > .col,
+      > [class*="col-"] {
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+  }
+
+  // Columns
+  //
+  // Common styles for small and large grid columns
+
+  @if $enable-grid-classes {
+    @include make-grid-columns();
+  }
+
+
+
+  ///////////////////////////////////////
+  //////////////////////////////////////////////// CARD DECK!!!
+  ///////////////////////////////////////
+
+
+  // Cards Variables
+
+  $card-group-margin:                 $grid-gutter-width / 2 !default;
+  $card-deck-margin:                  $card-group-margin !default;
+
+// Card deck
+
+.card-deck {
+  display: flex;
+  flex-direction: column;
+
+      .card {
+          margin-bottom: $card-deck-margin;
+      }
+
+      @include media-breakpoint-up(sm) {
+          flex-flow: row wrap;
+          margin-right: -$card-deck-margin;
+          margin-left: -$card-deck-margin;
+
+          .card {
+          display: flex;
+          // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+          flex: 1 0 0%;
+          flex-direction: column;
+          margin-right: $card-deck-margin;
+          margin-bottom: 0; // Override the default
+          margin-left: $card-deck-margin;
+          }
+      }
+  }
+
+
+  ///////////////////////////////////////
+  //////////////////////////////////////////////// UTILITIES!!!
+  ///////////////////////////////////////
+
+  // Utilities
+
+$utilities: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$utilities: map-merge(
+  (
+    "align": (
+      property: vertical-align,
+      class: align,
+      values: baseline top middle bottom text-bottom text-top
+    ),
+    "float": (
+      responsive: true,
+      property: float,
+      values: left right none
+    ),
+    "overflow": (
+      property: overflow,
+      values: auto hidden,
+    ),
+    "display": (
+      responsive: true,
+      print: true,
+      property: display,
+      class: d,
+      values: none inline inline-block block table table-row table-cell flex inline-flex
+    ),
+    "position": (
+      property: position,
+      values: static relative absolute fixed sticky
+    ),
+    // Sizing utilities
+    "width": (
+      property: width,
+      class: w,
+      values: (
+        25: 25%,
+        50: 50%,
+        75: 75%,
+        100: 100%,
+        auto: auto
+      )
+    ),
+    "height": (
+      property: height,
+      class: h,
+      values: (
+        25: 25%,
+        50: 50%,
+        75: 75%,
+        100: 100%,
+        auto: auto
+      )
+    ),
+    // Flex utilities
+    "flex": (
+      responsive: true,
+      property: flex,
+      values: (fill: 1 1 auto)
+    ),
+    "flex-direction": (
+      responsive: true,
+      property: flex-direction,
+      class: flex,
+      values: row column row-reverse column-reverse
+    ),
+    "flex-grow": (
+      responsive: true,
+      property: flex-grow,
+      class: flex,
+      values: (
+        grow-0: 0,
+        grow-1: 1,
+      )
+    ),
+    "flex-shrink": (
+      responsive: true,
+      property: flex-shrink,
+      class: flex,
+      values: (
+        shrink-0: 0,
+        shrink-1: 1,
+      )
+    ),
+    "flex-wrap": (
+      responsive: true,
+      property: flex-wrap,
+      class: flex,
+      values: wrap nowrap wrap-reverse
+    ),
+    "justify-content": (
+      responsive: true,
+      property: justify-content,
+      values: (
+        start: flex-start,
+        end: flex-end,
+        center: center,
+        between: space-between,
+        around: space-around,
+      )
+    ),
+    "align-items": (
+      responsive: true,
+      property: align-items,
+      values: (
+        start: flex-start,
+        end: flex-end,
+        center: center,
+        baseline: baseline,
+        stretch: stretch,
+      )
+    ),
+    "align-content": (
+      responsive: true,
+      property: align-content,
+      values: (
+        start: flex-start,
+        end: flex-end,
+        center: center,
+        between: space-between,
+        around: space-around,
+        stretch: stretch,
+      )
+    ),
+    "align-self": (
+      responsive: true,
+      property: align-self,
+      values: (
+        auto: auto,
+        start: flex-start,
+        end: flex-end,
+        center: center,
+        baseline: baseline,
+        stretch: stretch,
+      )
+    ),
+    "order": (
+      responsive: true,
+      property: order,
+      values: (
+        first: -1,
+        0: 0,
+        1: 1,
+        2: 2,
+        3: 3,
+        4: 4,
+        5: 5,
+        last: 6,
+      ),
+    ),
+    // Text
+    "text-transform": (
+      property: text-transform,
+      class: text,
+      values: lowercase uppercase capitalize
+    ),
+    "text-align": (
+      responsive: true,
+      property: text-align,
+      class: text,
+      values: left right center justify
+    ),
+  ),
+  $utilities
+);
+
+// Only use the utilities we need
+// stylelint-disable-next-line scss/dollar-variable-default
+$utilities: map-get-multiple(
+  $utilities,
+  (
+    "display",
+    "order",
+    "flex",
+    "flex-direction",
+    "flex-grow",
+    "flex-shrink"
+    "flex-wrap",
+    "justify-content",
+    "align-items",
+    "align-content",
+    "align-self",
+    "margin",
+    "margin-x",
+    "margin-y",
+    "margin-top",
+    "margin-right",
+    "margin-bottom",
+    "margin-left",
+    "negative-margin",
+    "negative-margin-x",
+    "negative-margin-y",
+    "negative-margin-top",
+    "negative-margin-right",
+    "negative-margin-bottom",
+    "negative-margin-left",
+    "padding",
+    "padding-x",
+    "padding-y",
+    "padding-top",
+    "padding-right",
+    "padding-bottom",
+    "padding-left",
+  )
+);
+
+// Loop over each breakpoint
+@each $breakpoint in map-keys($grid-breakpoints) {
+
+  // Generate media query if needed
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    // Loop over each utility property
+    @each $key, $utility in $utilities {
+      // The utility can be disabled with `false`, thus check if the utility is a map first
+      // Only proceed if responsive media queries are enabled or if it's the base media query
+      @if type-of($utility) == "map" and (map-get($utility, responsive) or $infix == "") {
+        @include generate-utility($utility, $infix);
+      }
+    }
+  }
+}
+
+
+// Print utilities
+@media print {
+  @each $key, $utility in $utilities {
+    // The utility can be disabled with `false`, thus check if the utility is a map first
+    // Then check if the utility needs print styles
+    @if type-of($utility) == "map" and map-get($utility, print) == true {
+      @include generate-utility($utility, "-print");
+    }
+  }
+}

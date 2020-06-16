@@ -1,0 +1,53 @@
+// primary color
+$color--primary : #161616;  //main black
+$color--secondary : #fff;  //main white
+$color--third  : #cb2026; //main red
+// neutrals
+$color--fourth  : #f2f6f8;  //ultralight grey
+$color--fifth : #e3e6e5;  //light grey
+$color--sixth : #bec1c2;  //medium grey
+$color--seventh : #64686b;  //grey
+// logo colors
+$color--logo-red : #e50914;
+
+
+/* ======================== MediaQ */
+  $break-xxxl: 1740px;
+  $break-xxl: 1440px;
+  $break-xl: 1200px;
+  $break-lg: 992px;
+  $break-md: 768px;
+  $break-sm: 576px;
+  $break-xs: 400px;
+  $break-xxs: 200px;
+
+  // breakpoints map
+  $breakpoints: (
+    xxxl: 1740px,
+    xxl: 1440px,
+    xl: 1200px,
+    lg: 992px,
+    md: 768px,
+    sm: 576px,
+    xs: 400px
+  ) !default;
+
+/* ============================== Timing */
+  $time-primary: .3s;
+  $time-secondary: .6s;
+  $time-third: .9s;
+
+/* ============================== Fonts */
+  $font-primary : 'Public Sans', sans-serif;
+  $font-secondary : 'Libre Franklin', sans-serif;
+
+/* ============================== Border radius "include"  */
+@mixin border-radius{
+  border-radius: 2px;
+}
+
+/* ============================== Border buttons "include"  */
+@mixin border-buttons{
+  border: 1px solid $color--third;
+  background-color: transparent;
+}

@@ -1,0 +1,27 @@
+.b--header{
+  background-color: red;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 90px;
+  padding: 15px 64px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  &__brand{
+    display: block;
+    height: 60px;
+    width: 80px;
+    top: 15px;
+    &__img{
+      height: 60px;
+    }
+  }
+  &__nav{
+    display: inline-block;
+    margin-right: 0px;
+  }
+}

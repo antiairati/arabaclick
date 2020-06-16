@@ -1,0 +1,33 @@
+/* ============================== general rules */
+* {
+outline:0;
+margin: 0px;
+box-sizing: border-box;
+}
+html{
+//background-color: $color--secondary;
+//font-family: $font-primary;
+}
+body {
+//background: $color--secondary !important;
+//font-family: $font-secondary;
+//color: $color--primary;
+overflow-x: hidden;
+}
+img {
+max-width: 100%;
+}
+a {
+display: unset;
+color: inherit;
+}
+ul {
+list-style: none;
+padding: 0;
+}
+ol{
+margin-top: 1rem !important;
+}
+address{
+font-style: normal;
+}
