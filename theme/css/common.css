@@ -2134,7 +2134,8 @@ body {
   overflow-x: hidden; }
 
 html, body {
-  height: 100%; }
+  height: 100%;
+  cursor: url("../img/arrow.svg"), default; }
 
 html {
   background: white; }
@@ -2171,14 +2172,14 @@ address {
   font-style: normal; }
 
 .f--font-primary {
-  font-size: 6.2rem;
+  font-size: 8rem;
   font-weight: normal;
   line-height: 1.1;
   letter-spacing: 4px;
   text-transform: uppercase; }
 
 .f--font-secondary {
-  font-size: 4.3rem;
+  font-size: 6rem;
   font-weight: normal;
   line-height: 1.1;
   letter-spacing: 1px;
@@ -2207,6 +2208,21 @@ address {
   font-weight: 100;
   line-height: 1.1;
   letter-spacing: normal; }
+
+.f--color-primary {
+  color: #252524; }
+.f--color-secondary {
+  color: #fff; }
+.f--color-third {
+  color: #ce6e2c; }
+.f--color-fourth {
+  color: #505050; }
+.f--color-fifth {
+  color: #c0442f; }
+.f--color-sixth {
+  color: #cdcdcd; }
+.f--color-seventh {
+  color: #e5e5e5; }
 
 .f--section-primary {
   padding-top: 11.5rem;

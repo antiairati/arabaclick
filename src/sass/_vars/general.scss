@@ -16,11 +16,13 @@ overflow-x: hidden;
 }
 html, body {
     height: 100%;
+    cursor: url('../img/arrow.svg'), default;
 }
 html { background: white }
 body {
     font-size: 16px; // 1rem = 16px
     font-family: $font-primary;
+
     &::after{
       content:'';
       position: fixed;

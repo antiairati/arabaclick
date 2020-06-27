@@ -18,7 +18,7 @@ Template Name: Page Next Edition
 <section class="f--section-third">
   <div class="container">
     <div class="row">
-      <div class="col-lg-10 offset-lg-1">
+      <div class="col-12">
         <div class="f--img-wrapper">
           <img class="f--img-wrapper__img" src="https://ideolab.com/file/2019/06/keynote1.jpg" alt="">
         </div>
