@@ -2174,14 +2174,14 @@ address {
   font-size: 6.2rem;
   font-weight: normal;
   line-height: 1.1;
-  letter-spacing: 5px;
+  letter-spacing: 4px;
   text-transform: uppercase; }
 
 .f--font-secondary {
   font-size: 4.3rem;
   font-weight: normal;
   line-height: 1.1;
-  letter-spacing: 5px;
+  letter-spacing: 1px;
   text-transform: uppercase; }
 
 .f--font-third {
