@@ -1,9 +1,11 @@
 
-<footer class="footer" id="page-footer" role="contentinfo">
+<footer class="b--footer" id="page-footer" role="contentinfo">
 	<?php get_sidebar( 'footer' ); ?>
-	<div class="site-info row">
-		<div class="columns small-12">
-			Hecho con WordPress
+	<div class="container">
+		<div class="row">
+			<div class="col-6">
+				<p>This is the footer</p>
+			</div>
 		</div>
 	</div>
 </footer>

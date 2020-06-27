@@ -2097,11 +2097,27 @@
 
   .d-print-inline-flex {
     display: inline-flex !important; } }
-/* ======================== MediaQ */
-/* ============================== Timing */
-/* ============================== Fonts */
-/* ============================== Border radius "include"  */
-/* ============================== Border buttons "include"  */
+@font-face {
+  font-family: 'Charlevoix Pro';
+  src: url("./font/CharlevoixPro-Black.eot");
+  src: url("./font/CharlevoixPro-Black.eot?#iefix") format("embedded-opentype"), url("./font/CharlevoixPro-Black.woff") format("woff"), url("./font/CharlevoixPro-Black.ttf") format("truetype"), url("./font/CharlevoixPro-Black.svg#CharlevoixPro-Black") format("svg");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap; }
+@font-face {
+  font-family: 'Charlevoix Pro';
+  src: url("./font/CharlevoixPro-Regular.eot");
+  src: url("./font/CharlevoixPro-Regular.eot?#iefix") format("embedded-opentype"), url("./font/CharlevoixPro-Regular.woff") format("woff"), url("./font/CharlevoixPro-Regular.ttf") format("truetype"), url("./font/CharlevoixPro-Regular.svg#CharlevoixPro-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; }
+@font-face {
+  font-family: 'Charlevoix Pro';
+  src: url("./font/CharlevoixPro-Thin.eot");
+  src: url("./font/CharlevoixPro-Thin.eot?#iefix") format("embedded-opentype"), url("./font/CharlevoixPro-Thin.woff") format("woff"), url("./font/CharlevoixPro-Thin.ttf") format("truetype"), url("./font/CharlevoixPro-Thin.svg#CharlevoixPro-Thin") format("svg");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap; }
 /* ============================== general rules */
 * {
   outline: 0;
@@ -2110,6 +2126,26 @@
 
 body {
   overflow-x: hidden; }
+
+html, body {
+  height: 100%; }
+
+html {
+  background: white; }
+
+body {
+  font-size: 16px;
+  font-family: 'Charlevoix Pro'; }
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #cdcdcd;
+    border-radius: 50px;
+    z-index: -1; }
 
 img {
   max-width: 100%; }
@@ -2129,25 +2165,25 @@ address {
   font-style: normal; }
 
 .b--header {
-  background-color: red;
+  background-color: rgba(255, 0, 0, 0.2);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
   height: 90px;
-  padding: 15px 64px;
+  padding: 10px 64px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center; }
   .b--header__brand {
     display: block;
-    height: 60px;
-    width: 80px;
+    height: 70px;
+    width: 90px;
     top: 15px; }
     .b--header__brand__img {
-      height: 60px; }
+      height: 70px; }
   .b--header__nav {
     display: inline-block;
     margin-right: 0px; }
@@ -2156,5 +2192,12 @@ address {
   display: flex;
   list-style: none !important;
   text-decoration: none !important; }
+  .b--nav__list-group li {
+    padding: 0px 7px; }
+    .b--nav__list-group li a {
+      text-decoration: none; }
+
+.b--footer {
+  background: yellow; }
 
 /*# sourceMappingURL=common.css.map */

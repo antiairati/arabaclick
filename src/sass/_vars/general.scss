@@ -14,6 +14,25 @@ body {
 //color: $color--primary;
 overflow-x: hidden;
 }
+html, body {
+    height: 100%;
+}
+html { background: white }
+body {
+    font-size: 16px; // 1rem = 16px
+    font-family: 'Charlevoix Pro';
+    &::after{
+      content:'';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color:#cdcdcd;
+      border-radius: 50px;
+      z-index:-1;
+    }
+}
 img {
 max-width: 100%;
 }

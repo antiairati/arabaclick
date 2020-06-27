@@ -4,9 +4,10 @@
     display: flex;
     list-style: none!important;
     text-decoration: none!important;
-    &__list-item{
-      &__link{
-
+    li{
+      padding: 0px 7px;
+      a{
+        text-decoration: none;
       }
     }
   }
