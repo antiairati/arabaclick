@@ -2135,7 +2135,7 @@ body {
 
 html, body {
   height: 100%;
-  cursor: url("../img/arrow.svg"), default; }
+  cursor: url("../theme/img/arrow.svg"), default; }
 
 html {
   background: white; }
@@ -2287,8 +2287,11 @@ address {
       text-decoration: none; }
 
 .b--footer {
-  background: #252524;
-  padding: 2.5rem 0px;
+  background-color: #252524;
+  /* For browsers that do not support gradients */
+  background-image: linear-gradient(to top, #252524, #e5e5e5);
+  /* Standard syntax (must be last) */
+  padding: 4rem 0px 2.5rem;
   border-radius: 0px 0px 50px 50px;
   color: #e5e5e5; }
 

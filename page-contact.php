@@ -5,13 +5,33 @@ Template Name: Page Contact
 ?>
 
 <?php get_header() ?>
-<div class="container" style="margin-top:100px;">
-  <div class="row">
-    <div class="col-lg-2">
-      <div class="" style="background-color:green;">
-        <h1>This is the contact page!</h1>
+<section class="f--section-primary">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="f--title f--font-primary f--color-primary">Contacto</h1>
       </div>
     </div>
   </div>
-</div>
+</section>
+<section class="f--section-secondary">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="f--title f--font-secondary f--color-primary">email </h3>
+        <a href="#" class="f--font-third f--color-primary">info@arabaclick.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="f--section-secondary">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="f--title f--font-secondary f--color-primary">dirección </h3>
+        <p class="f--font-third f--color-primary">Oficina de juventud</p>
+      </div>
+    </div>
+  </div>
+</section>
 <?php get_footer() ?>
