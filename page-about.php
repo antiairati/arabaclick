@@ -15,11 +15,11 @@ Template Name: Page About
     </div>
   </div>
 </section>
-<section class="f--section-third position-relative">
+<section class="f--section-third ">
   <div class="container">
     <div class="row">
-      <div class="col-lg-5 offset-lg-1">
-        <div class="position-sticky b--content f--color-primary">
+      <div class="col-lg-5 offset-lg-1 position-relative">
+        <div class="position-sticky b--content f--color-primary" style="top:130px;">
           <p>Hemos pasado de lo analógico a lo digital y “la nube” esta cargada de imágenes susceptibles de ser transformadas en numerosos formatos. Platos, libros, alfombras, tazas, cuadros, puzzles, cojines, camisetas… La imaginación es “impresionante”.</p>
           <br>
           <p>Todas las personas con un teléfono móvil son fotógrafas que mediante un simple gesto cuentan historias en las redes sociales y las llenan de imágenes de diferentes temáticas: Naturaleza, arquitectura, eventos culturales y deportivos, personas, moda, gastronomía, arte, diseño…</p>
@@ -44,7 +44,7 @@ Template Name: Page About
     </div>
   </div>
 </section>
-<section class="f--section-third position-relative">
+<section class="f--section-third">
   <div class="container">
     <div class="row">
       <div class="col-lg-5">
@@ -53,8 +53,8 @@ Template Name: Page About
         </div>
         <span class="f--font-sixth f--color-primary f--credit">© Lauren Marek, Google Pixel</span>
       </div>
-      <div class="col-lg-5 offset-lg-1">
-        <div class="position-sticky b--content f--color-primary">
+      <div class="col-lg-5 offset-lg-1 position-relative">
+        <div class="position-sticky b--content f--color-primary" style="top:130px;">
           <p>Antes de hacer un viaje, de ir a un restaurante, de comprar un producto, de ver un evento cultural, etc. acudimos a internet en busca de información y lo que más nos impacta son las imágenes. Si nos agradan, tendremos una actitud proactiva y no dudaremos en el momento de decidirnos.</p>
           <br>
           <p>Esta es la importancia de la fotografía. Todo lo que nos imaginamos está fotografiado y si estas fotografías transmiten belleza la transformamos inmediatamente en un deseo por conocer, y como no puede ser de otra forma, de fotografiar siendo partícipes del escenario.</p>

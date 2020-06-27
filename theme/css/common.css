@@ -2191,7 +2191,7 @@ address {
   letter-spacing: normal; }
 
 .f--font-fourth {
-  font-size: 2rem;
+  font-size: 1.56rem;
   font-weight: normal;
   line-height: 1.1;
   letter-spacing: normal; }
@@ -2288,5 +2288,37 @@ address {
     text-align: center; }
     .b--logo-wrapper__item__img {
       max-height: 10rem; }
+
+.b--card-primary {
+  display: block;
+  text-decoration: none;
+  background-color: #cdcdcd;
+  /* For browsers that do not support gradients */
+  background-image: linear-gradient(to bottom right, #cdcdcd, #e5e5e5);
+  /* Standard syntax (must be last) */
+  padding: 1.5rem;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out; }
+  .b--card-primary__title {
+    font-size: 1.56rem;
+    font-weight: normal;
+    line-height: 1.1;
+    letter-spacing: normal;
+    font-weight: 900;
+    margin-bottom: 1rem; }
+  .b--card-primary__subtitle {
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.1;
+    letter-spacing: normal;
+    margin-bottom: 0.5rem; }
+  .b--card-primary__hash {
+    font-size: 0.8rem;
+    font-weight: 100;
+    line-height: 1.1;
+    letter-spacing: normal; }
+  .b--card-primary:hover {
+    border-radius: 30px;
+    background-image: linear-gradient(to bottom right, #cdcdcd, #cdcdcd); }
 
 /*# sourceMappingURL=common.css.map */

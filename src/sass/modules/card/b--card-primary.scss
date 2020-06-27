@@ -1,0 +1,25 @@
+.b--card-primary{
+  display: block;
+  text-decoration: none;
+  background-color: $color--sixth; /* For browsers that do not support gradients */
+  background-image: linear-gradient(to bottom right, $color--sixth, $color--seventh); /* Standard syntax (must be last) */
+  padding: $measure*3;
+  border-radius: 20px;
+  transition: all $time-primary ease-in-out;
+  &__title{
+    @include font-fourth;
+    font-weight: 900;
+    margin-bottom: $measure*2;
+  }
+  &__subtitle{
+    @include font-fifth;
+    margin-bottom: $measure;
+  }
+  &__hash{
+    @include font-sixth;
+  }
+  &:hover{
+    border-radius: 30px;
+    background-image: linear-gradient(to bottom right, $color--sixth, $color--sixth);
+  }
+}

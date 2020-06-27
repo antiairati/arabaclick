@@ -15,11 +15,11 @@ Template Name: Page Past Edition
     </div>
   </div>
 </section>
-<section class="f--section-third position-relative">
+<section class="f--section-third">
   <div class="container">
     <div class="row">
       <div class="col-lg-4">
-        <div class="position-sticky b--content f--color-primary">
+        <div class="b--content f--color-primary">
           <h3>2019</h3>
           <br>
           <p>Hemos pasado de lo analógico a lo digital y “la nube” esta cargada de imágenes susceptibles de ser transformadas en numerosos formatos. Platos, libros, alfombras, tazas, cuadros, puzzles, cojines, camisetas… La imaginación es “impresionante”.</p>
@@ -36,7 +36,7 @@ Template Name: Page Past Edition
     </div>
   </div>
 </section>
-<section class="f--section-third position-relative">
+<section class="f--section-third">
   <div class="container">
     <div class="row">
       <div class="col-lg-4">
