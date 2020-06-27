@@ -20,7 +20,7 @@ html, body {
 html { background: white }
 body {
     font-size: 16px; // 1rem = 16px
-    font-family: 'Charlevoix Pro';
+    font-family: $font-primary;
     &::after{
       content:'';
       position: fixed;
@@ -28,7 +28,7 @@ body {
       left: 0;
       right: 0;
       bottom: 0;
-      background-color:#cdcdcd;
+      background-color: $color--seventh;
       border-radius: 50px;
       z-index:-1;
     }

@@ -2,7 +2,14 @@
 @import './bootstrap/grid';
 
 @import './_vars/font';
+@import './_vars/_vars';
 @import './_vars/general';
+
+//general
+@import './foundation/f--font';
+@import './foundation/f--section';
+@import './foundation/f--heading';
+@import './foundation/f--img-wrapper';
 
 //header
 @import './modules/header/b--header';
