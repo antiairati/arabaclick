@@ -2224,6 +2224,10 @@ address {
 .f--tagline {
   padding-bottom: 1rem; }
 
+.f--credit {
+  padding-top: 1.5rem;
+  padding-left: 1rem; }
+
 .f--img-wrapper {
   border-radius: 30px;
   overflow: hidden; }
@@ -2268,5 +2272,15 @@ address {
 
 .b--footer {
   background: yellow; }
+
+.b--logo-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; }
+  .b--logo-wrapper__item {
+    padding: 1.5rem; }
+    .b--logo-wrapper__item__img {
+      max-height: 10rem; }
 
 /*# sourceMappingURL=common.css.map */
