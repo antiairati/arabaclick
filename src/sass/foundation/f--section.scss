@@ -1,0 +1,14 @@
+.f--section{
+  &-primary{
+    padding-top: $measure*23;
+    padding-bottom: $measure*3;
+  }
+  &-secondary{
+    padding-top: $measure*11;
+    padding-bottom: $measure*3;
+  }
+  &-third{
+    padding-top: $measure*3;
+    padding-bottom: $measure*6;
+  }
+}

@@ -1,0 +1,81 @@
+//font variables
+@mixin font-primary{
+  font-size: 6.2rem;
+  font-weight: normal;
+  line-height: 1.1;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+@mixin font-secondary{
+  font-size: 4.3rem;
+  font-weight: normal;
+  line-height: 1.1;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+@mixin font-third{
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: normal;
+}
+
+@mixin font-fourth{
+  font-size: 2rem;
+  font-weight: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+}
+
+@mixin font-fifth{
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+}
+
+@mixin font-sixth{
+  font-size: 0.8rem;
+  font-weight: 100;
+  line-height: 1.1;
+  letter-spacing: normal;
+}
+
+
+@font-face {
+    font-family: 'Charlevoix Pro';
+    src: url('./font/CharlevoixPro-Black.eot');
+    src: url('./font/CharlevoixPro-Black.eot?#iefix') format('embedded-opentype'),
+        url('./font/CharlevoixPro-Black.woff') format('woff'),
+        url('./font/CharlevoixPro-Black.ttf') format('truetype'),
+        url('./font/CharlevoixPro-Black.svg#CharlevoixPro-Black') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Charlevoix Pro';
+    src: url('./font/CharlevoixPro-Regular.eot');
+    src: url('./font/CharlevoixPro-Regular.eot?#iefix') format('embedded-opentype'),
+        url('./font/CharlevoixPro-Regular.woff') format('woff'),
+        url('./font/CharlevoixPro-Regular.ttf') format('truetype'),
+        url('./font/CharlevoixPro-Regular.svg#CharlevoixPro-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Charlevoix Pro';
+    src: url('./font/CharlevoixPro-Thin.eot');
+    src: url('./font/CharlevoixPro-Thin.eot?#iefix') format('embedded-opentype'),
+        url('./font/CharlevoixPro-Thin.woff') format('woff'),
+        url('./font/CharlevoixPro-Thin.ttf') format('truetype'),
+        url('./font/CharlevoixPro-Thin.svg#CharlevoixPro-Thin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}

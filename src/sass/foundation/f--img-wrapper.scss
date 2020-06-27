@@ -1,0 +1,8 @@
+.f--img-wrapper{
+  border-radius: 30px;
+  overflow: hidden;
+  &__img{
+    min-height: 100%;
+    object-fit: cover;
+  }
+}
