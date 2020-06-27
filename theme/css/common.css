@@ -2271,15 +2271,21 @@ address {
       text-decoration: none; }
 
 .b--footer {
-  background: yellow; }
+  background: #252524;
+  padding: 2.5rem 0px;
+  border-radius: 0px 0px 50px 50px;
+  color: #e5e5e5; }
 
 .b--logo-wrapper {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between; }
   .b--logo-wrapper__item {
-    padding: 1.5rem; }
+    padding: 1.5rem;
+    width: 25%;
+    text-align: center; }
     .b--logo-wrapper__item__img {
       max-height: 10rem; }
 

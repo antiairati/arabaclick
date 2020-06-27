@@ -1,3 +1,6 @@
 .b--footer{
-  background: yellow;
+  background: $color--primary;
+  padding: $measure*5 0px;
+  border-radius: 0px 0px 50px 50px;
+  color: $color--seventh;
 }
