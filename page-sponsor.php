@@ -5,12 +5,13 @@ Template Name: Page Sponsor
 ?>
 
 <?php get_header() ?>
+<?php if(have_posts()): while(have_posts()): the_post(); ?>
 <section class="f--section-primary">
   <div class="container">
     <div class="row">
       <div class="col-lg-8">
-        <h1 class="f--title f--font-secondary">Patrocinadores</h1>
-        <h2 class="f--tagline f--font-fourth">Gente que apoya el proyecto</h2>
+        <h1 class="f--title f--font-secondary"><?php the_title() ?></h1>
+        <h2 class="f--tagline f--font-fourth"><?php the_excerpt() ?></h2>
       </div>
     </div>
   </div>
@@ -20,7 +21,7 @@ Template Name: Page Sponsor
     <div class="row">
       <div class="col-lg-7">
         <div class="b--content">
-          <p>La Asociación Kikute para el fomento de actividades deportivas, culturales y tecnológicas (kirola, kultura eta teknologia), es una asociación sin ánimo de lucro orientada a la creación de eventos en el ámbito del Territorio Histórico de Araba y, en este caso propone, la creación de un evento en el ámbito de la fotografía con dispositivo móvil.</p>
+          <?php the_content() ?>
         </div>
       </div>
     </div>
@@ -60,4 +61,6 @@ Template Name: Page Sponsor
     </div>
   </div>
 </section>
+<?php endwhile; ?>
+<?php endif; ?>
 <?php get_footer() ?>

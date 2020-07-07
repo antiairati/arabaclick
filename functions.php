@@ -17,6 +17,12 @@ function arabaclick_setup_theme() {
   // Soporte para imágenes destacadas
 	add_theme_support( 'post-thumbnails' );
 
+	// excerpt
+	add_action( 'init', 'wpse325327_add_excerpts_to_pages' );
+	function wpse325327_add_excerpts_to_pages() {
+	    add_post_type_support( 'page', 'excerpt' );
+	}
+
   // Soporte para Feed automático para posts y comentarios
 	add_theme_support( 'automatic-feed-links' );
 

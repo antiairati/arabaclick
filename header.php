@@ -10,6 +10,12 @@
 <body <?php body_class(); ?>>
 	<header class="b--header">
 		<a href="#" class="b--header__brand"> <img class="b--header__brand__img" src="http://localhost:8888/wordpress-arabaclick/wp-content/themes/arabaclick/theme/img/logo.svg" alt=""> </a>
+		<div id="nav-icon3">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
 		<div class="b--header__nav">
 				<nav id="site-navigation" class="b--nav" role="navigation">
 					<?php if ( has_nav_menu( 'main-menu' ) ): ?>

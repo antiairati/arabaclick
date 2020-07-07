@@ -9,7 +9,7 @@ Template Name: Page Home
   <div class="row">
     <div class="col-lg-12">
       <div class="" style="background-color:green;">
-        <h1>This is the home!</h1>
+        <h1><?php the_title() ?></h1>
       </div>
     </div>
   </div>

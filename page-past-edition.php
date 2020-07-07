@@ -9,8 +9,8 @@ Template Name: Page Past Edition
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h1 class="f--title f--font-primary f--color-primary">Ediciones anteriores</h1>
-        <h2 class="f--tagline f--font-fourth f--color-primary">Disfrutando con la fotografía con móvil en Vitoria desde 2019</h2>
+        <h1 class="f--title f--font-primary f--color-primary"><?php the_title() ?></h1>
+        <h2 class="f--tagline f--font-fourth f--color-primary"><?php the_excerpt() ?></h2>
       </div>
     </div>
   </div>

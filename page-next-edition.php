@@ -5,12 +5,13 @@ Template Name: Page Next Edition
 ?>
 
 <?php get_header() ?>
+<?php if(have_posts()): while(have_posts()): the_post(); ?>
 <section class="f--section-primary">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h1 class="f--title f--font-primary f--color-primary">Próxima edición</h1>
-        <h2 class="f--tagline f--font-fourth f--color-primary">La próxima edición será el 2020</h2>
+        <h1 class="f--title f--font-primary f--color-primary"><?php the_title() ?></h1>
+        <h2 class="f--tagline f--font-fourth f--color-primary"><?php the_excerpt() ?></h2>
       </div>
     </div>
   </div>
@@ -34,9 +35,7 @@ Template Name: Page Next Edition
     <div class="row">
       <div class="col-lg-6 offset-lg-2">
         <div class="b--content f--color-primary">
-          <p>Hemos pasado de lo analógico a lo digital y “la nube” esta cargada de imágenes susceptibles de ser transformadas en numerosos formatos. Platos, libros, alfombras, tazas, cuadros, puzzles, cojines, camisetas… La imaginación es “impresionante”.</p>
-          <br>
-          <p>Todas las personas con un teléfono móvil son fotógrafas que mediante un simple gesto cuentan historias en las redes sociales y las llenan de imágenes de diferentes temáticas: Naturaleza, arquitectura, eventos culturales y deportivos, personas, moda, gastronomía, arte, diseño…</p>
+          <?php the_content() ?>
         </div>
       </div>
     </div>
@@ -73,4 +72,6 @@ Template Name: Page Next Edition
     </div>
   </div>
 </section>
+<?php endwhile; ?>
+<?php endif; ?>
 <?php get_footer() ?>

@@ -1,18 +1,8 @@
 /* ============================== general rules */
 * {
-outline:0;
-margin: 0px;
-box-sizing: border-box;
-}
-html{
-//background-color: $color--secondary;
-//font-family: $font-primary;
-}
-body {
-//background: $color--secondary !important;
-//font-family: $font-secondary;
-//color: $color--primary;
-overflow-x: hidden;
+  outline:0;
+  margin: 0px;
+  box-sizing: border-box;
 }
 html, body {
     height: 100%;
@@ -22,7 +12,7 @@ html { background: white }
 body {
     font-size: 16px; // 1rem = 16px
     font-family: $font-primary;
-
+    overflow-x: hidden;
     &::after{
       content:'';
       position: fixed;
@@ -36,19 +26,19 @@ body {
     }
 }
 img {
-max-width: 100%;
+  max-width: 100%;
 }
 a {
-display: unset;
-color: inherit;
+  display: unset;
+  color: inherit;
 }
 ul {
-list-style: none;
-padding: 0;
+  list-style: none;
+  padding: 0;
 }
 ol{
-margin-top: 1rem !important;
+  margin-top: 1rem !important;
 }
 address{
-font-style: normal;
+  font-style: normal;
 }
