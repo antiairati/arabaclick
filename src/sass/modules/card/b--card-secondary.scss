@@ -1,0 +1,33 @@
+.b--card-secondary{
+  display:block;
+  margin-bottom: 40px;
+  text-decoration: none!important;
+  cursor: pointer;
+  &__img-wrapper{
+    height: 200px;
+    overflow: hidden;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    border: 4px transparent solid;
+    transition: all $time-primary ease-in-out;
+    &__img{
+      width: 100%;
+      min-height: 200px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  &__text{
+    @include font-fourth;
+    color: $color--primary;
+    transition: all $time-primary ease-in-out;
+  }
+  &:hover &{
+    &__img-wrapper{
+      border: 4px $color--third solid;
+    }
+    &__text{
+      color: $color--third;
+    }
+  }
+}

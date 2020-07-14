@@ -1,0 +1,40 @@
+.b--card-third{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  border-bottom: 3px $color--primary solid;
+  width: 100%;
+  text-decoration: none!important;
+  padding: 40px 10px;
+  margin-bottom: 40px;
+  background-color: transparent;
+  color: $color--primary;
+  transition: all $time-primary ease-in-out;
+  &__info{
+    width: 60%;
+    padding-right: 20px;
+    &__title{
+      @include font-third;
+      margin-bottom: 16px;
+    }
+    &__author{
+      @include font-fourth;
+    }
+  }
+  &__content{
+    width: 40%;
+    padding-left: 20px;
+    &__date{
+      @include font-fourth;
+      margin-bottom: 8px;
+    }
+    &__time{
+      @include font-fourth;
+    }
+  }
+  &:hover{
+    background-color: $color--primary;
+    color: $color--third;
+  }
+}

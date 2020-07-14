@@ -1,4 +1,4 @@
-Ω<?php
+<?php
 /*
 Template Name: Page Next Edition
 */

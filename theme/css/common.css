@@ -2385,4 +2385,88 @@ address {
     border-radius: 30px;
     background-image: linear-gradient(to bottom right, #cdcdcd, #cdcdcd); }
 
+.b--card-secondary {
+  display: block;
+  margin-bottom: 40px;
+  text-decoration: none !important;
+  cursor: pointer; }
+  .b--card-secondary__img-wrapper {
+    height: 200px;
+    overflow: hidden;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    border: 4px transparent solid;
+    transition: all 0.3s ease-in-out; }
+    .b--card-secondary__img-wrapper__img {
+      width: 100%;
+      min-height: 200px;
+      top: 50%;
+      transform: translateY(-50%); }
+  .b--card-secondary__text {
+    font-size: 2.4rem;
+    font-weight: normal;
+    line-height: 1.1;
+    letter-spacing: normal;
+    color: #252524;
+    transition: all 0.3s ease-in-out; }
+  .b--card-secondary:hover .b--card-secondary__img-wrapper {
+    border: 4px #ce6e2c solid; }
+  .b--card-secondary:hover .b--card-secondary__text {
+    color: #ce6e2c; }
+
+.b--card-third {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  border-bottom: 3px #252524 solid;
+  width: 100%;
+  text-decoration: none !important;
+  padding: 40px 10px;
+  margin-bottom: 40px;
+  background-color: transparent;
+  color: #252524;
+  transition: all 0.3s ease-in-out; }
+  .b--card-third__info {
+    width: 60%;
+    padding-right: 20px; }
+    .b--card-third__info__title {
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: normal;
+      margin-bottom: 16px; }
+    .b--card-third__info__author {
+      font-size: 2.4rem;
+      font-weight: normal;
+      line-height: 1.1;
+      letter-spacing: normal; }
+  .b--card-third__content {
+    width: 40%;
+    padding-left: 20px; }
+    .b--card-third__content__date {
+      font-size: 2.4rem;
+      font-weight: normal;
+      line-height: 1.1;
+      letter-spacing: normal;
+      margin-bottom: 8px; }
+    .b--card-third__content__time {
+      font-size: 2.4rem;
+      font-weight: normal;
+      line-height: 1.1;
+      letter-spacing: normal; }
+  .b--card-third:hover {
+    background-color: #252524;
+    color: #ce6e2c; }
+
+.b--page-home__back-items {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
 /*# sourceMappingURL=common.css.map */

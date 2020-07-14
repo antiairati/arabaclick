@@ -14,22 +14,32 @@ Template Name: Page Contact
     </div>
   </div>
 </section>
-<section class="f--section-secondary">
+<section class="f--section-third">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3 class="f--title f--font-secondary f--color-primary">email </h3>
-        <a href="#" class="f--font-third f--color-primary">info@arabaclick.com</a>
+        <h3 class="f--font-third f--color-primary">Organiza: </h3>
+        <p class="f--font-fourth f--color-primary"><?php the_field( 'organizador' ); ?></p>
       </div>
     </div>
   </div>
 </section>
-<section class="f--section-secondary">
+<section class="f--section-third">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3 class="f--title f--font-secondary f--color-primary">dirección </h3>
-        <p class="f--font-third f--color-primary">Oficina de juventud</p>
+        <h3 class="f--font-third f--color-primary">Email: </h3>
+        <a href="#" class="f--font-fourth f--color-primary"><?php the_field( 'email_1' ); ?></a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="f--section-third">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="f--font-third f--color-primary">Email: </h3>
+        <a href="#" class="f--font-fourth f--color-primary"><?php the_field( 'email_2' ); ?></a>
       </div>
     </div>
   </div>

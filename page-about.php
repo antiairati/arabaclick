@@ -65,5 +65,17 @@ Template Name: Page About
     </div>
   </div>
 </section>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 offset-lg-2">
+        <a href="#">equipo</a>
+      </div>
+      <div class="col-lg-4">
+        <a href="#">patrocinadores</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <?php get_footer() ?>
