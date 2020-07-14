@@ -30,7 +30,6 @@ Template Name: Page About
           	<img class="f--img-wrapper__img" src="<?php echo esc_url( $primera_imagen['url'] ); ?>" alt="<?php echo esc_attr( $primera_imagen['alt'] ); ?>" />
           <?php endif; ?>
         </div>
-        <span class="f--font-sixth f--color-primary f--credit">© <?php the_field( 'autor_de_la_primera_foto' ); ?></span>
       </div>
     </div>
   </div>
@@ -55,7 +54,6 @@ Template Name: Page About
           	<img class="f--img-wrapper__img" src="<?php echo esc_url( $segunda_imagen['url'] ); ?>" alt="<?php echo esc_attr( $segunda_imagen['alt'] ); ?>" />
           <?php endif; ?>
         </div>
-        <span class="f--font-sixth f--color-primary f--credit">© <?php the_field( 'autor_de_la_segunda_foto' ); ?>  </span>
       </div>
       <div class="col-lg-5 offset-lg-1 position-relative">
         <div class="position-sticky b--content f--color-primary" style="top:130px;">

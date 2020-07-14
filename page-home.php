@@ -7,12 +7,32 @@ Template Name: Page Home
 <?php get_header() ?>
 <div class="b--page-home">
   <div class="b--page-home__back-items">
-    <video autoplay="autoplay" loop="loop" id="video_background" preload="auto" volume="50"/>
-       <source src="/url/tuvideo.mp4" type="video/mp4" />
-     </video/>
+    <div class="lamp">
+        <div class="lava">
+            <div class="blob"></div>
+            <div class="blob"></div>
+            <div class="blob"></div>
+            <div class="blob"></div>
+            <div class="blob"></div>
+            <div class="blob"></div>
+            <div class="blob"></div>
+            <div class="blob"></div>
+            <div class="blob top"></div>
+            <div class="blob bottom"></div>
+        </div>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+      <defs>
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+          <feBlend in="SourceGraphic" in2="goo" />
+        </filter>
+      </defs>
+    </svg>
   </div>
   <div class="b--page-home__front-items">
-    <div class="container" style="margin-top:100px;">
+    <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <h1><?php the_title() ?></h1>

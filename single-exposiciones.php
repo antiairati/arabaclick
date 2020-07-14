@@ -1,4 +1,4 @@
-<?php get_header() ?>
+  <?php get_header() ?>
 
 <?php if(have_posts()): while(have_posts()): the_post(); ?>
 <section class="f--section-primary">
@@ -29,7 +29,7 @@
         <?php if ( $imagen_de_la_exposicion ) : ?>
         	<img src="<?php echo esc_url( $imagen_de_la_exposicion['url'] ); ?>" alt="<?php echo esc_attr( $imagen_de_la_exposicion['alt'] ); ?>" />
         <?php endif; ?>
-        
+
         <div class="b--content">
           <?php the_content() ?>
         </div>
