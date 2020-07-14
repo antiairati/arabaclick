@@ -1,4 +1,4 @@
-<?php
+Ω<?php
 /*
 Template Name: Page Next Edition
 */
@@ -46,25 +46,18 @@ Template Name: Page Next Edition
     <div class="row">
       <div class="col-lg-8 offset-lg-2">
         <div class="row">
-          <div class="col-lg-4">
+          <div class="col-lg-5">
             <a href="#" class="b--card-primary">
               <h4 class="b--card-primary__title">Actividades</h4>
               <p class="b--card-primary__subtitle">Conoce las actividades que vamos a llevar a cabo durante el encuentro de fotografía con móvil</p>
               <span class="b--card-primary__hash">#aprende</span>
             </a>
           </div>
-          <div class="col-lg-4">
+          <div class="col-lg-5">
             <a href="#" class="b--card-primary">
               <h4 class="b--card-primary__title">Exposiciones</h4>
               <p class="b--card-primary__subtitle">Conoce las actividades que vamos a llevar a cabo durante el encuentro de fotografía con móvil</p>
               <span class="b--card-primary__hash">#observa</span>
-            </a>
-          </div>
-          <div class="col-lg-4">
-            <a href="#" class="b--card-primary">
-              <h4 class="b--card-primary__title">Convocatorias</h4>
-              <p class="b--card-primary__subtitle">Conoce las actividades que vamos a llevar a cabo durante el encuentro de fotografía con móvil</p>
-              <span class="b--card-primary__hash">#participa</span>
             </a>
           </div>
         </div>

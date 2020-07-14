@@ -20,16 +20,17 @@ Template Name: Page About
     <div class="row">
       <div class="col-lg-5 offset-lg-1 position-relative">
         <div class="position-sticky b--content f--color-primary" style="top:130px;">
-          <p>Hemos pasado de lo analógico a lo digital y “la nube” esta cargada de imágenes susceptibles de ser transformadas en numerosos formatos. Platos, libros, alfombras, tazas, cuadros, puzzles, cojines, camisetas… La imaginación es “impresionante”.</p>
-          <br>
-          <p>Todas las personas con un teléfono móvil son fotógrafas que mediante un simple gesto cuentan historias en las redes sociales y las llenan de imágenes de diferentes temáticas: Naturaleza, arquitectura, eventos culturales y deportivos, personas, moda, gastronomía, arte, diseño…</p>
+          <?php the_field( 'primer_texto' ); ?>
         </div>
       </div>
       <div class="col-lg-5 offset-lg-1">
         <div class="f--img-wrapper">
-          <img class="f--img-wrapper__img" src="https://cdn5.eyeem.com/thumb/9c75c8f204e2dfbc6ab2bfd233b4bb1fa780ef29-1554814708048/w/1280" alt="">
+          <?php $primera_imagen = get_field( 'primera_imagen' ); ?>
+          <?php if ( $primera_imagen ) : ?>
+          	<img class="f--img-wrapper__img" src="<?php echo esc_url( $primera_imagen['url'] ); ?>" alt="<?php echo esc_attr( $primera_imagen['alt'] ); ?>" />
+          <?php endif; ?>
         </div>
-        <span class="f--font-sixth f--color-primary f--credit">© Eric Chu, iPhone</span>
+        <span class="f--font-sixth f--color-primary f--credit">© <?php the_field( 'autor_de_la_primera_foto' ); ?></span>
       </div>
     </div>
   </div>
@@ -38,8 +39,8 @@ Template Name: Page About
   <div class="container">
     <div class="row">
       <div class="col-lg-6 offset-lg-3 text-center">
-        <h3 class="f--font-third f--color-primary f--color-primary text-center f--tagline">“Lo más importante no es la cámara, sino el ojo.”</h3>
-        <span class="f--font-fourth f--color-primary f--color-primary text-center"> - Alfred Eisenstaedt - </span>
+        <h3 class="f--font-third f--color-primary f--color-primary text-center f--tagline">“<?php the_field( 'frase' ); ?>”</h3>
+        <span class="f--font-fourth f--color-primary f--color-primary text-center"> - <?php the_field( 'autor_de_la_frase' ); ?> - </span>
       </div>
     </div>
   </div>
@@ -49,15 +50,16 @@ Template Name: Page About
     <div class="row">
       <div class="col-lg-5">
         <div class="f--img-wrapper">
-          <img class="f--img-wrapper__img" src="https://cdn2.eyeem.com/thumb/38814c0505fcdce0cf620d72412a5c57eb99b85b-1552061001723/w/1300" alt="">
+          <?php $segunda_imagen = get_field( 'segunda_imagen' ); ?>
+          <?php if ( $segunda_imagen ) : ?>
+          	<img class="f--img-wrapper__img" src="<?php echo esc_url( $segunda_imagen['url'] ); ?>" alt="<?php echo esc_attr( $segunda_imagen['alt'] ); ?>" />
+          <?php endif; ?>
         </div>
-        <span class="f--font-sixth f--color-primary f--credit">© Lauren Marek, Google Pixel</span>
+        <span class="f--font-sixth f--color-primary f--credit">© <?php the_field( 'autor_de_la_segunda_foto' ); ?>  </span>
       </div>
       <div class="col-lg-5 offset-lg-1 position-relative">
         <div class="position-sticky b--content f--color-primary" style="top:130px;">
-          <p>Antes de hacer un viaje, de ir a un restaurante, de comprar un producto, de ver un evento cultural, etc. acudimos a internet en busca de información y lo que más nos impacta son las imágenes. Si nos agradan, tendremos una actitud proactiva y no dudaremos en el momento de decidirnos.</p>
-          <br>
-          <p>Esta es la importancia de la fotografía. Todo lo que nos imaginamos está fotografiado y si estas fotografías transmiten belleza la transformamos inmediatamente en un deseo por conocer, y como no puede ser de otra forma, de fotografiar siendo partícipes del escenario.</p>
+          <?php the_field( 'segundo_texto' ); ?>
         </div>
       </div>
     </div>

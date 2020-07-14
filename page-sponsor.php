@@ -32,30 +32,20 @@ Template Name: Page Sponsor
     <div class="row">
       <div class="col-12">
         <div class="b--logo-wrapper">
-          <div class="b--logo-wrapper__item">
-            <img class="b--logo-wrapper__item__img" src="https://lh3.googleusercontent.com/proxy/N5lyRuAYbaA89Uxq8-Hvm7LOpCWcyDVIaFiwuGr0rQVwIzwlnWPmjCUNVp04gMp1tL9kd8rriQ2H-pvMJ5tpO230F__hqdMwLMPrAd2AwkqFLKPfQ6UkRw" alt="">
-          </div>
-          <div class="b--logo-wrapper__item">
-            <img class="b--logo-wrapper__item__img" src="https://avoz.info/wp-content/uploads/2016/10/escuela-artes-oficios-vitoria-gasteiz.png" alt="">
-          </div>
-          <div class="b--logo-wrapper__item">
-            <img class="b--logo-wrapper__item__img" src="https://www.sanchoelsabio.eus/wp-content/uploads/2015/06/logosanchoelsabio.png" alt="">
-          </div>
-          <div class="b--logo-wrapper__item">
-            <img class="b--logo-wrapper__item__img" src="https://fotogasteiz.com/vitorianos/wp-content/uploads/2019/02/logo-asociacio%CC%81n-fotogasteiz-blanco-800x800.jpg" alt="">
-          </div>
-          <div class="b--logo-wrapper__item">
-            <img class="b--logo-wrapper__item__img" src="https://fotogasteiz.com/vitorianos/wp-content/uploads/2019/02/logo-asociacio%CC%81n-fotogasteiz-blanco-800x800.jpg" alt="">
-          </div>
-          <div class="b--logo-wrapper__item">
-            <img class="b--logo-wrapper__item__img" src="https://www.sanchoelsabio.eus/wp-content/uploads/2015/06/logosanchoelsabio.png" alt="">
-          </div>
-          <div class="b--logo-wrapper__item">
-            <img class="b--logo-wrapper__item__img" src="https://avoz.info/wp-content/uploads/2016/10/escuela-artes-oficios-vitoria-gasteiz.png" alt="">
-          </div>
-          <div class="b--logo-wrapper__item">
-            <img class="b--logo-wrapper__item__img" src="https://lh3.googleusercontent.com/proxy/N5lyRuAYbaA89Uxq8-Hvm7LOpCWcyDVIaFiwuGr0rQVwIzwlnWPmjCUNVp04gMp1tL9kd8rriQ2H-pvMJ5tpO230F__hqdMwLMPrAd2AwkqFLKPfQ6UkRw" alt="">
-          </div>
+          <?php
+            $patrocinadores_args = array(
+              'post_type' => 'patrocinadores',
+              'posts_per_page' => 16,
+              'oderby' => 'date',
+              'order' => 'DESC',
+            );
+            $patrocinadores_query = new WP_Query($patrocinadores_args);
+            while ($patrocinadores_query -> have_posts()): $patrocinadores_query -> the_post(); ?>
+            <div class="b--logo-wrapper__item">
+              <img class="b--logo-wrapper__item__img" src="<?php echo get_the_post_thumbnail_url() ?>" alt="">
+            </div>
+          <?php endwhile; ?>
+          <?php wp_reset_query() ?>
         </div>
       </div>
     </div>

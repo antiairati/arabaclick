@@ -23,6 +23,41 @@ Template Name: Page Exhibition
         <div class="b--content">
           <?php the_content() ?>
         </div>
+        <div class="">
+          <?php
+            $exposiciones_args = array(
+              'post_type' => 'exposiciones',
+              'posts_per_page' => 4,
+              'oderby' => 'date',
+              'order' => 'DESC',
+            );
+            $exposiciones_query = new WP_Query($exposiciones_args);
+            while ($exposiciones_query -> have_posts()): $exposiciones_query -> the_post(); ?>
+            <div class="col-lg-4">
+              <a href="<?php the_permalink() ?>">
+                <?php $imagen_de_la_exposicion = get_field( 'imagen_de_la_exposicion' ); ?>
+                <?php if ( $imagen_de_la_exposicion ) : ?>
+                	<img src="<?php echo esc_url( $imagen_de_la_exposicion['url'] ); ?>" alt="<?php echo esc_attr( $imagen_de_la_exposicion['alt'] ); ?>" />
+                <?php endif; ?>
+                <p><?php the_field( 'lugar_de_la_exposicion' ); ?></p>
+              </a>
+            </div>
+          <?php endwhile; ?>
+          <?php wp_reset_query() ?>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="f--section-third">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7">
+        <h1 class="f--title f--font-primary f--color-primary"><?php the_field( 'lugar_de_la_exposicion' ); ?></h1>
+        <h2 class="f--tagline f--font-fourth f--color-primary"><?php the_field( 'fecha_de_inicio_de_la_exposicion' ); ?></h2>
+        <h2><?php the_field( 'fecha_de_cierre_de_la_exposicion' ); ?></h2>
+        <p><?php the_field( 'horario_de_la_exposicion' ); ?></p>
+        <p><?php the_field( 'fecha_y_hora_de_inauguracion_de_la_exposicion' ); ?></p>
       </div>
     </div>
   </div>

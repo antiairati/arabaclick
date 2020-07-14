@@ -44,5 +44,8 @@ require 'functions/scripts.php';
 
 require 'functions/enqueues.php';
 
+// Post Type
+// Custom Items for Backend
+require get_template_directory() . '/functions/custom-post-type.php';
 
  ?>

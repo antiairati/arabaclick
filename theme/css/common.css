@@ -2345,7 +2345,7 @@ address {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between; }
+  justify-content: flex-start; }
   .b--logo-wrapper__item {
     padding: 1.5rem;
     width: 25%;
