@@ -21,10 +21,13 @@ Template Name: Page Next Edition
     <div class="row">
       <div class="col-12">
         <div class="f--img-wrapper">
-          <img class="f--img-wrapper__img" src="https://ideolab.com/file/2019/06/keynote1.jpg" alt="">
+          <?php $foto_de_la_proxima_edicion = get_field( 'foto_de_la_proxima_edicion' ); ?>
+          <?php if ( $foto_de_la_proxima_edicion ) : ?>
+            <img class="f--img-wrapper__img" src="<?php echo esc_url( $foto_de_la_proxima_edicion['url'] ); ?>" alt="<?php echo esc_attr( $foto_de_la_proxima_edicion['alt'] ); ?>" />
+          <?php endif; ?>
         </div>
         <div class="f--title text-center">
-          <h3 class="f--font-secondary f--color-primary">1-18 Octubre 2020</h3>
+          <h3 class="f--font-secondary f--color-primary"><?php the_field( 'fechas_de_la_proxima_edicion' ); ?></h3>
         </div>
       </div>
     </div>
@@ -47,17 +50,15 @@ Template Name: Page Next Edition
       <div class="col-lg-8 offset-lg-2">
         <div class="row">
           <div class="col-lg-5">
-            <a href="#" class="b--card-primary">
-              <h4 class="b--card-primary__title">Actividades</h4>
-              <p class="b--card-primary__subtitle">Conoce las actividades que vamos a llevar a cabo durante el encuentro de fotografía con móvil</p>
-              <span class="b--card-primary__hash">#aprende</span>
+            <a href="http://arabaclick.com/proxima-edicion/actividades/" class="b--card-primary">
+              <h4 class="b--card-primary__title"><?php the_field( 'titulo_de_actividades' ); ?></h4>
+              <p class="b--card-primary__subtitle"><?php the_field( 'texto_de_actividades' ); ?></p>
             </a>
           </div>
           <div class="col-lg-5">
-            <a href="#" class="b--card-primary">
-              <h4 class="b--card-primary__title">Exposiciones</h4>
-              <p class="b--card-primary__subtitle">Conoce las actividades que vamos a llevar a cabo durante el encuentro de fotografía con móvil</p>
-              <span class="b--card-primary__hash">#observa</span>
+            <a href="http://arabaclick.com/proxima-edicion/exposiciones/" class="b--card-primary">
+              <h4 class="b--card-primary__title"><?php the_field( 'titulo_de_exposiciones' ); ?></h4>
+              <p class="b--card-primary__subtitle"><?php the_field( 'texto_de_exposiciones' ); ?></p>
             </a>
           </div>
         </div>

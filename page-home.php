@@ -35,7 +35,8 @@ Template Name: Page Home
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h1><?php the_title() ?></h1>
+          <h1 class="f--title f--font-secondary"><?php the_field( 'titulo' ); ?></h1>
+          <h2  class="f--font-fourth"><?php the_field( 'fechas' ); ?></h2>
         </div>
       </div>
     </div>
