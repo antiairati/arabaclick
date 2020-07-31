@@ -1,0 +1,243 @@
+/* ============================== CONTENT */
+.b--content{
+  *:last-child{
+    margin-bottom: 0px!important;
+  }
+  h1{
+    @include font-third;
+    font-weight: 900;
+    margin-top: $measure*7;
+    margin-bottom: $measure*6;
+    @media all and (max-width: $break-lg){
+      margin-top: $measure*6;
+      margin-bottom: $measure*5;
+    }
+  }
+  h2{
+    @include font-third;
+    font-weight: 300;
+    margin-top: $measure*7;
+    margin-bottom: $measure*6;
+    @media all and (max-width: $break-lg){
+      margin-top: $measure*6;
+      margin-bottom: $measure*5;
+    }
+  }
+  h3{
+    @include font-fourth;
+    font-weight: 900;
+    margin-top: $measure*5;
+    margin-bottom: $measure*4;
+    @media all and (max-width: $break-lg){
+      margin-top: $measure*4;
+      margin-bottom: $measure*3;
+    }
+  }
+  h4{
+    @include font-fourth;
+    font-weight: 300;
+    margin-top: $measure*5;
+    margin-bottom: $measure*4;
+    @media all and (max-width: $break-lg){
+      margin-top: $measure*4;
+      margin-bottom: $measure*3;
+    }
+  }
+  h5{
+    @include font-fifth;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-top: $measure*4;
+    margin-bottom: $measure*3;
+    @media all and (max-width: $break-lg){
+      margin-top: $measure*3;
+      margin-bottom: $measure*2;
+    }
+  }
+  h6{
+    @include font-fifth;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-top: $measure*4;
+    margin-bottom: $measure*3;
+    @media all and (max-width: $break-lg){
+      margin-top: $measure*3;
+      margin-bottom: $measure*2;
+    }
+  }
+  a{
+    @include font-fifth;
+    position: relative;
+    text-decoration: underline;
+    &:hover{
+      color: $color--third;
+      text-decoration-color: $color--third;
+    }
+  }
+  p{
+    @include font-fifth;
+    margin-bottom: $measure*2;
+  }
+  ul{
+    margin-top:  $measure*2;
+    margin-bottom:  $measure*2;
+    @media all and (max-width: $break-lg){
+      margin-top:  $measure*2;
+    }
+    li{
+      @include font-fifth;
+      position: relative;
+      margin-left: 20px;
+      margin-bottom:  $measure*2;
+       &::before{
+         content: " ";
+         width: 13px;
+         height: 1px;
+         top: 9px;
+         left: 0;
+         transform: translateX(-18px);
+         background-color: $color--third;
+         position: absolute;
+       }
+       ul{
+         margin-top:  $measure*2;
+         li{
+           &::before{
+             width: 6px;
+             height: 6px;
+             border-radius: 50%;
+             top: 7px;
+             background: $color--third;
+             transform:translateX(-16px);
+           }
+         }
+       }
+    }
+  }
+  ol{
+    margin-left: 20px;
+    margin-top:  $measure*3;
+    margin-bottom:  $measure*2;
+    li{
+      @include font-fifth;
+      position: relative;
+      margin-left: 13px;
+      margin-bottom:  $measure*2;
+      ol{
+        margin-left: 0;
+        margin-top: 10px;
+      }
+    }
+  }
+  blockquote{
+    position: relative;
+    margin-bottom: 85px;
+    margin-top: 45px;
+    margin-left: 60px;
+    width: 65%;
+    @media all and (max-width: $break-lg){
+      margin-top: 30px;
+      margin-bottom: 60px;
+      margin-left: 30px;
+    }
+    p{
+      @include font-fourth;
+      font-weight: 300;
+      font-style: italic;
+      @media all and (max-width: $break-lg){
+        font-size: 16px;
+        line-height: 1.56;
+      }
+      &::before{
+        content: '';
+        width: 80%;
+        height: 1px;
+        background: $color--third;
+        bottom: -30px;
+        left: 0;
+        position: absolute;
+        @media all and (max-width: $break-lg){
+          bottom: -20px;
+        }
+     }
+    }
+  }
+  em{}
+  strong{
+    font-weight: 500;
+  }
+  .alignright {
+    float:right;
+    margin:0 0 1em 1em;
+    max-width: 100%;
+  }
+  .alignleft {
+    float:left;
+    margin:0 1em 1em 0;
+    max-width: 100%;
+  }
+  .aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+  }
+  a div.alignright {
+    float:right;
+    margin:0 0 1em 1em;
+  }
+  a div.alignleft {
+    float:left;
+    margin:0 1em 1em 0;
+  }
+  a div.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  img.size-full{
+    max-width: 100%;
+    height: auto;
+  }
+  iframe{
+    max-width: 100%;
+  }
+  figure.alignright {
+    iframe{
+      float:right;
+      margin:0 0 1em 1em;
+    }
+  }
+  figure.alignleft {
+    iframe{
+      float:left;
+      margin:0 1em 1em 0;
+    }
+  }
+  figure.aligncenter {
+    iframe{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  a figure.alignright {
+    iframe{
+      float:right;
+      margin:0 0 1em 1em;
+    }
+  }
+  a figure.alignleft {
+    iframe{
+      float:left;
+      margin:0 1em 1em 0;
+    }
+  }
+  a figure.aligncenter {
+    iframe{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

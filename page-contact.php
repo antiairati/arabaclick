@@ -18,7 +18,7 @@ Template Name: Page Contact
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3 class="f--font-third f--color-primary">Organiza: </h3>
+        <h3 class="f--font-third f--color-primary f--tagline">Organiza: </h3>
         <p class="f--font-fourth f--color-primary"><?php the_field( 'organizador' ); ?></p>
       </div>
     </div>
@@ -28,7 +28,7 @@ Template Name: Page Contact
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3 class="f--font-third f--color-primary">Email: </h3>
+        <h3 class="f--font-third f--color-primary f--tagline">Email: </h3>
         <a href="#" class="f--font-fourth f--color-primary"><?php the_field( 'email_1' ); ?></a>
       </div>
     </div>
@@ -38,7 +38,7 @@ Template Name: Page Contact
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3 class="f--font-third f--color-primary">Email: </h3>
+        <h3 class="f--font-third f--color-primary f--tagline">Email: </h3>
         <a href="#" class="f--font-fourth f--color-primary"><?php the_field( 'email_2' ); ?></a>
       </div>
     </div>

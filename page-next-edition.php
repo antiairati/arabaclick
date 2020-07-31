@@ -19,15 +19,12 @@ Template Name: Page Next Edition
 <section class="f--section-third">
   <div class="container">
     <div class="row">
-      <div class="col-12">
+      <div class="col-lg-6 offset-lg-3">
         <div class="f--img-wrapper">
           <?php $foto_de_la_proxima_edicion = get_field( 'foto_de_la_proxima_edicion' ); ?>
           <?php if ( $foto_de_la_proxima_edicion ) : ?>
             <img class="f--img-wrapper__img" src="<?php echo esc_url( $foto_de_la_proxima_edicion['url'] ); ?>" alt="<?php echo esc_attr( $foto_de_la_proxima_edicion['alt'] ); ?>" />
           <?php endif; ?>
-        </div>
-        <div class="f--title text-center">
-          <h3 class="f--font-secondary f--color-primary"><?php the_field( 'fechas_de_la_proxima_edicion' ); ?></h3>
         </div>
       </div>
     </div>
@@ -37,6 +34,7 @@ Template Name: Page Next Edition
   <div class="container">
     <div class="row">
       <div class="col-lg-6 offset-lg-2">
+        <h3 class="f--font-fourth f--color-primary f--title"><?php the_field( 'fechas_de_la_proxima_edicion' ); ?></h3>
         <div class="b--content f--color-primary">
           <?php the_content() ?>
         </div>

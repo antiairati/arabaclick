@@ -2,6 +2,10 @@
   &-primary{
     padding-top: $measure*23;
     padding-bottom: $measure*3;
+    @media (max-width: $break-lg) {
+      padding-top: $measure*15;
+      padding-bottom: $measure*1;
+    }
   }
   &-secondary{
     padding-top: $measure*11;

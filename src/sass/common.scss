@@ -15,9 +15,13 @@
 //header
 @import './modules/header/b--header';
 @import './modules/header/b--nav';
+@import './modules/header/b--nav-lang';
 
 //footer
 @import './modules/footer/b--footer';
+
+//content
+@import './modules/b--content';
 
 //modules
 @import './modules/b--logo-wrapper';

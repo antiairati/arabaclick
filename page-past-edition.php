@@ -20,7 +20,7 @@ Template Name: Page Past Edition
   <div class="container">
     <div class="row">
       <div class="col-lg-6">
-        <div class="b--content f--color-primary">
+        <div class="b--content f--color-primary f--title">
           <?php the_field( 'texto_edicion_2019' ); ?>
         </div>
       </div>
@@ -38,7 +38,7 @@ Template Name: Page Past Edition
 <section class="f--section-third">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4">
+      <div class="col-lg-4 f--title">
         <div class="f--img-wrapper">
           <?php $imagen_secundaria_1 = get_field( 'imagen_secundaria_1' ); ?>
           <?php if ( $imagen_secundaria_1 ) : ?>
@@ -46,7 +46,7 @@ Template Name: Page Past Edition
           <?php endif; ?>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 f--title">
         <div class="f--img-wrapper">
           <?php $imagen_secundaria_2 = get_field( 'imagen_secundaria_2' ); ?>
           <?php if ( $imagen_secundaria_2 ) : ?>
@@ -54,7 +54,7 @@ Template Name: Page Past Edition
           <?php endif; ?>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 f--title">
         <div class="f--img-wrapper">
           <?php $imagen_secundaria_3 = get_field( 'imagen_secundaria_3' ); ?>
           <?php if ( $imagen_secundaria_3 ) : ?>
@@ -62,7 +62,7 @@ Template Name: Page Past Edition
           <?php endif; ?>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 f--title">
         <div class="f--img-wrapper">
           <?php $imagen_secundaria_4 = get_field( 'imagen_secundaria_4' ); ?>
           <?php if ( $imagen_secundaria_4 ) : ?>
@@ -70,7 +70,7 @@ Template Name: Page Past Edition
           <?php endif; ?>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 f--title">
         <div class="f--img-wrapper">
           <?php $imagen_secundaria_5 = get_field( 'imagen_secundaria_5' ); ?>
           <?php if ( $imagen_secundaria_5 ) : ?>
@@ -78,7 +78,7 @@ Template Name: Page Past Edition
           <?php endif; ?>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 f--title">
         <div class="f--img-wrapper">
           <?php $imagen_secundaria_6 = get_field( 'imagen_secundaria_6' ); ?>
           <?php if ( $imagen_secundaria_6 ) : ?>
@@ -86,7 +86,7 @@ Template Name: Page Past Edition
           <?php endif; ?>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 f--title">
         <div class="f--img-wrapper">
           <?php $imagen_secundaria_7 = get_field( 'imagen_secundaria_7' ); ?>
           <?php if ( $imagen_secundaria_7 ) : ?>
@@ -94,7 +94,7 @@ Template Name: Page Past Edition
           <?php endif; ?>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 f--title">
         <div class="f--img-wrapper">
           <?php $imagen_secundaria_8 = get_field( 'imagen_secundaria_3' ); ?>
           <?php if ( $imagen_secundaria_8 ) : ?>
@@ -102,7 +102,7 @@ Template Name: Page Past Edition
           <?php endif; ?>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 f--title">
         <div class="f--img-wrapper">
           <?php $imagen_secundaria_9 = get_field( 'imagen_secundaria_9' ); ?>
           <?php if ( $imagen_secundaria_9 ) : ?>
@@ -110,7 +110,7 @@ Template Name: Page Past Edition
           <?php endif; ?>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 f--title">
         <div class="f--img-wrapper">
           <?php $imagen_secundaria_10 = get_field( 'imagen_secundaria_10' ); ?>
           <?php if ( $imagen_secundaria_10 ) : ?>
@@ -118,7 +118,7 @@ Template Name: Page Past Edition
           <?php endif; ?>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 f--title">
         <div class="f--img-wrapper">
           <?php $imagen_secundaria_11 = get_field( 'imagen_secundaria_11' ); ?>
           <?php if ( $imagen_secundaria_11 ) : ?>
@@ -126,7 +126,7 @@ Template Name: Page Past Edition
           <?php endif; ?>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 f--title">
         <div class="f--img-wrapper">
           <?php $imagen_secundaria_12 = get_field( 'imagen_secundaria_12' ); ?>
           <?php if ( $imagen_secundaria_12 ) : ?>

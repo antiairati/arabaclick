@@ -8,7 +8,7 @@ html, body {
     height: 100%;
     cursor: url('../theme/img/arrow.svg'), default;
 }
-html { background: white }
+html { background: black }
 body {
     font-size: 16px; // 1rem = 16px
     font-family: $font-primary;
@@ -23,7 +23,13 @@ body {
       background-color: $color--seventh;
       border-radius: 50px;
       z-index:-1;
+      @media (max-width: $break-lg) {
+        border-radius: 35px;
+      }
     }
+}
+.main{
+  min-height: calc(100vh - 139px);
 }
 img {
   max-width: 100%;

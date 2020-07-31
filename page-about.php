@@ -19,7 +19,7 @@ Template Name: Page About
   <div class="container">
     <div class="row">
       <div class="col-lg-5 offset-lg-1 position-relative">
-        <div class="position-sticky b--content f--color-primary" style="top:130px;">
+        <div class="position-sticky b--content f--color-primary f--title" style="top:130px;">
           <?php the_field( 'primer_texto' ); ?>
         </div>
       </div>
@@ -48,7 +48,7 @@ Template Name: Page About
   <div class="container">
     <div class="row">
       <div class="col-lg-5">
-        <div class="f--img-wrapper">
+        <div class="f--img-wrapper f--title">
           <?php $segunda_imagen = get_field( 'segunda_imagen' ); ?>
           <?php if ( $segunda_imagen ) : ?>
           	<img class="f--img-wrapper__img" src="<?php echo esc_url( $segunda_imagen['url'] ); ?>" alt="<?php echo esc_attr( $segunda_imagen['alt'] ); ?>" />
@@ -67,10 +67,16 @@ Template Name: Page About
   <div class="container">
     <div class="row">
       <div class="col-lg-4 offset-lg-2">
-        <a href="#">equipo</a>
+        <a href="http://arabaclick.com/quienes-somos/equipo/" class="b--card-primary">
+          <h4 class="b--card-primary__title"><?php the_field( 'titulo_equipo' ); ?></h4>
+          <p class="b--card-primary__subtitle"><?php the_field( 'descripcion_equipo' ); ?></p>
+        </a>
       </div>
       <div class="col-lg-4">
-        <a href="#">patrocinadores</a>
+        <a href="http://arabaclick.com/quienes-somos/patrocinadores/" class="b--card-primary">
+          <h4 class="b--card-primary__title"><?php the_field( 'titulo_patrocinadores' ); ?></h4>
+          <p class="b--card-primary__subtitle"><?php the_field( 'descripcion_patrocinadores' ); ?></p>
+        </a>
       </div>
     </div>
   </div>

@@ -5,6 +5,9 @@
   line-height: 1.1;
   letter-spacing: 4px;
   text-transform: uppercase;
+  @media (max-width: $break-lg) {
+    font-size: 3rem;
+  }
 }
 
 @mixin font-secondary{
@@ -13,6 +16,9 @@
   line-height: 1.1;
   letter-spacing: normal;
   text-transform: uppercase;
+  @media (max-width: $break-lg) {
+    font-size: 2.4rem;
+  }
 }
 
 @mixin font-third{
@@ -20,6 +26,9 @@
   font-weight: 900;
   line-height: 1.1;
   letter-spacing: normal;
+  @media (max-width: $break-lg) {
+    font-size: 2rem;
+  }
 }
 
 @mixin font-fourth{
@@ -27,6 +36,9 @@
   font-weight: normal;
   line-height: 1.1;
   letter-spacing: normal;
+  @media (max-width: $break-lg) {
+    font-size: 1.3rem;
+  }
 }
 
 @mixin font-fifth{
@@ -34,6 +46,9 @@
   font-weight: normal;
   line-height: 1.1;
   letter-spacing: normal;
+  @media (max-width: $break-lg) {
+    font-size: 0.967rem;
+  }
 }
 
 @mixin font-sixth{
@@ -41,6 +56,9 @@
   font-weight: 100;
   line-height: 1.1;
   letter-spacing: normal;
+  @media (max-width: $break-lg) {
+    font-size: 0.7rem;
+  }
 }
 
 

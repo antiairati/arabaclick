@@ -1,0 +1,14 @@
+.b--nav-lang{
+  margin-right: 75px;
+  margin-top: 6px;
+  @media (max-width: $break-lg) {
+    margin-right: 64px;
+  }
+  select{
+    @include font-fifth;
+    color: $color--primary;
+    background-color: transparent;
+    cursor: pointer;
+    border-width: 0px;
+  }
+}

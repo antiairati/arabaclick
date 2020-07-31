@@ -4,12 +4,17 @@
   background-color: $color--sixth; /* For browsers that do not support gradients */
   background-image: linear-gradient(to bottom right, $color--sixth, $color--seventh); /* Standard syntax (must be last) */
   padding: $measure*3;
+  margin-bottom: $measure*4;
   border-radius: 20px;
   transition: all $time-primary ease-in-out;
   &__title{
     @include font-fourth;
     font-weight: 900;
     margin-bottom: $measure*2;
+  }
+  &__title-eusk{
+    @include font-fourth;
+    font-weight: 300;
   }
   &__subtitle{
     @include font-fifth;

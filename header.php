@@ -10,6 +10,9 @@
 <body <?php body_class(); ?>>
 	<header class="b--header">
 		<a href="http://arabaclick.com/" class="b--header__brand"> <img class="b--header__brand__img" src="http://localhost:8888/wordpress-arabaclick/wp-content/themes/arabaclick/theme/img/logo.svg" alt=""> </a>
+		<div class="b--nav-lang">
+			<?php pll_the_languages( array( 'dropdown' => 1 ) ); ?>
+		</div>
 		<input type="checkbox" id="overlay-input" />
 		<label for="overlay-input" id="overlay-button"><span></span></label>
 		<div id="overlay">
@@ -23,3 +26,4 @@
 			</ul>
 		</div>
 	</header>
+	<main class="main"><!-- Open main -->

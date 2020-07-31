@@ -3,14 +3,43 @@
   background-image: linear-gradient(to top, $color--primary, $color--seventh); /* Standard syntax (must be last) */
   padding: $measure*8 0px $measure*5;
   border-radius: 0px 0px 50px 50px;
-  color: $color--seventh;
+  color: $color--third;
+  @media (max-width: $break-lg) {
+    border-radius: 0px 0px 35px 35px;
+  }
   &__social{
     display: flex;
-    &__icon{
+    &__link{
       display: block;
       width: 35px;
       height: 35px;
-      padding: 5px;
+      margin-right: 10px;
+      opacity:1;
+      transition: all $time-primary ease-in-out;
+      &:hover{
+        opacity: 0.5;
+      }
+      &__icon{
+        width: auto;
+        height: auto;
+        min-height: 35px;
+        max-height: 35px;
+      }
+    }
+  }
+  &__email{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.35rem;
+    &__link{
+      color: $color--seventh;
+      font-size: 1.3rem!important;
+      @include font-fifth;
+      opacity: 1;
+      transition: all $time-primary ease-in-out;
+      &:hover{
+        opacity: 0.5;
+      }
     }
   }
 }
