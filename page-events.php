@@ -56,6 +56,19 @@ Template Name: Page Events
     </div>
   </div>
 </section>
+<section class="f--section-third">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+        <h3 class="f--title f--font-fourth f--color-third"><?php the_field( 'titulo_del_form' ); ?></h3>
+        <div class="b--content f--title">
+          <?php the_field( 'contenido_del_form' ); ?>
+        </div>
+        <?php echo do_shortcode( '[contact-form-7 id="331" title="Talleres"]' ); ?>
+      </div>
+    </div>
+  </div>
+</section>
 <?php endwhile; ?>
 <?php endif; ?>
 <?php get_footer() ?>

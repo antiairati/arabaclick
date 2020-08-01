@@ -6,10 +6,10 @@
 			<div class="col-6">
 				<div class="b--footer__social">
 					<a class="b--footer__social__link" href="https://www.facebook.com/arabaclick" target="_blank">
-						<img class="b--footer__social__link__icon" src="http://localhost:8888/wordpress-arabaclick/wp-content/themes/arabaclick/theme/img/facebook.png" alt="">
+						<img class="b--footer__social__link__icon" src="http://arabaclick.com/wp-content/themes/arabaclick/theme/img/facebook.png" alt="">
 					</a>
 					<a class="b--footer__social__link" href="https://www.instagram.com/arabaclick/" target="_blank">
-						<img class="b--footer__social__link__icon" src="http://localhost:8888/wordpress-arabaclick/wp-content/themes/arabaclick/theme/img/instagram.png" alt="">
+						<img class="b--footer__social__link__icon" src="http://arabaclick.com/wp-content/themes/arabaclick/theme/img/instagram.png" alt="">
 					</a>
 				</div>
 			</div>

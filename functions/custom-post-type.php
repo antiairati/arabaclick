@@ -113,7 +113,6 @@ function wpn_exposiciones() {
 		'capability_type'       => 'page',
 	);
 	register_post_type( 'exposiciones', $args );
-
 }
 
 
@@ -173,6 +172,62 @@ function wpn_patrocinadores() {
 	register_post_type( 'patrocinadores', $args );
 }
 
+// COLABORADORES Custom Post Type
+add_action( 'init', 'wpn_colaboradores', 0 );
+function wpn_colaboradores() {
+
+	$labels = array(
+		'name'                  => _x( 'Colaboradores', 'Post Type General Name', 'text_domain' ),
+		'singular_name'         => _x( 'Colaborador', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'             => __( 'Colaboradores', 'text_domain' ),
+		'name_admin_bar'        => __( 'Colaboradores', 'text_domain' ),
+		'archives'              => __( 'Archivo de Colaboradores', 'text_domain' ),
+		'attributes'            => __( 'Atributo de Colaborador', 'text_domain' ),
+		'parent_item_colon'     => __( 'Colaborador padre', 'text_domain' ),
+		'all_items'             => __( 'Todos los Colaboradores', 'text_domain' ),
+		'add_new_item'          => __( 'Añadir nuevo Colaborador', 'text_domain' ),
+		'add_new'               => __( 'Añadir Nuevo', 'text_domain' ),
+		'new_item'              => __( 'Nuevo Colaborador', 'text_domain' ),
+		'edit_item'             => __( 'Editar Colaborador', 'text_domain' ),
+		'update_item'           => __( 'Actualizar Colaborador', 'text_domain' ),
+		'view_item'             => __( 'Ver Colaborador', 'text_domain' ),
+		'view_items'            => __( 'Ver Colaboradores', 'text_domain' ),
+		'search_items'          => __( 'Buscar Colaboradores', 'text_domain' ),
+		'not_found'             => __( 'No encontrado', 'text_domain' ),
+		'not_found_in_trash'    => __( 'No encontrado en la papelera', 'text_domain' ),
+		'featured_image'        => __( 'Imagen destacada', 'text_domain' ),
+		'set_featured_image'    => __( 'Configurar Imagen destacada', 'text_domain' ),
+		'remove_featured_image' => __( 'Borrar Imagen destacada', 'text_domain' ),
+		'use_featured_image'    => __( 'Usar como Imagen destacada', 'text_domain' ),
+		'insert_into_item'      => __( 'Insertar en el Colaborador', 'text_domain' ),
+		'uploaded_to_this_item' => __( 'Actualizar en este Colaborador', 'text_domain' ),
+		'items_list'            => __( 'Listado de Colaboradores', 'text_domain' ),
+		'items_list_navigation' => __( 'Lista navegable de Colaboradores', 'text_domain' ),
+		'filter_items_list'     => __( 'Filtro de lista de Colaboradores', 'text_domain' ),
+	);
+	$args = array(
+		'label'                 => __( 'Colaborador', 'text_domain' ),
+		'description'           => __( 'Colaboradores de Arabaclick', 'text_domain' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
+		'taxonomies'            => array( 'category', 'post_tag' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'menu_icon'             => 'dashicons-rest-api',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+	);
+	register_post_type( 'colaboradores', $args );
+}
+
 // SOCIOS Custom Post Type
 add_action( 'init', 'wpn_socios', 0 );
 function wpn_socios() {
@@ -227,5 +282,4 @@ function wpn_socios() {
 		'capability_type'       => 'page',
 	);
 	register_post_type( 'socios', $args );
-
 }

@@ -1,0 +1,55 @@
+.b--field{
+  width: 100%;
+  margin-bottom: $measure*3;
+  &__label{
+    color: $color--third;
+    @include font-fifth;
+  }
+
+  .wpcf7-form-control-wrap{
+    .wpcf7-form-control{
+      margin-top: $measure;
+      min-width: 100%;
+      min-height: $measure*4;
+      background-color: $color--sixth;
+      border: 1px solid $color--third;
+      border-radius: 11px;
+      padding: 0px 10px;
+      @include font-fifth;
+      color: $color--primary;
+    }
+    .wpcf7-radio{
+      background-color: transparent;
+      border: transparent;
+      padding: 0px;
+      .wpcf7-list-item{
+        display: block;
+        margin: 0px;
+        margin-top: $measure;
+        input{
+          cursor: pointer;
+        }
+        .wpcf7-list-item-label{
+          @include font-fifth;
+          color: $color--primary;
+        }
+      }
+    }
+  }
+}
+
+.b--btn-primary, .wpcf7-submit{
+  background-color: $color--third;
+  border: transparent;
+  padding: $measure*2 $measure*3;
+  border-radius: 10px;
+  @include font-fifth;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: $color--secondary;
+  cursor: pointer;
+  transition: all $time-primary ease-in-out;
+  &:hover{
+    border-radius: 20px;
+  }
+}

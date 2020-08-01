@@ -13,11 +13,11 @@
 <section class="f--section-secondary">
   <div class="container">
     <div class="row">
-      <div class="col-lg-7">
+      <div class="col-lg-8">
         <h2 class="f--title f--font-third f--color-primary"><?php the_field( 'profesor_de_taller' ); ?></h2>
         <h3 class="f--tagline f--font-fourth f--color-primary"><?php the_field( 'lugar_del_taller' ); ?></h3>
         <h4 class="f--tagline f--font-fifth f--color-primary"><?php the_field( 'fecha_del_taller' ); ?>, <?php the_field( 'hora_del_taller' ); ?></h4>
-        <p class="f--tagline f--font-fifth f--color-primary">Duración <?php the_field( 'duracion_del_taller' ); ?>h</p>
+        <p class="f--title f--font-fifth f--color-primary">Duración <?php the_field( 'duracion_del_taller' ); ?>h</p>
         <div class="b--content">
           <?php the_content() ?>
         </div>
@@ -36,7 +36,7 @@
           <?php endif; ?>
         </div>
       </div>
-      <div class="col-lg-5 offset-lg-1">
+      <div class="col-lg-5">
         <h6 class="f--title f--font-fourth f--color-primary"><?php the_field( 'profesor_de_taller' ); ?></h6>
         <div class="b--content">
           <?php the_field( 'informacion_de_profesor' ); ?>

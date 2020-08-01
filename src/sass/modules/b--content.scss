@@ -131,30 +131,28 @@
   }
   blockquote{
     position: relative;
-    margin-bottom: 85px;
-    margin-top: 45px;
-    margin-left: 60px;
+    margin-bottom: $measure*3;
+    margin-left: 30px;
     width: 65%;
     @media all and (max-width: $break-lg){
-      margin-top: 30px;
       margin-bottom: 60px;
       margin-left: 30px;
     }
     p{
-      @include font-fourth;
+      @include font-fifth;
+      font-size: 1.25rem!important;
       font-weight: 300;
-      font-style: italic;
       @media all and (max-width: $break-lg){
         font-size: 16px;
         line-height: 1.56;
       }
       &::before{
         content: '';
-        width: 80%;
-        height: 1px;
+        width: 1px;
+        height: 100%;
         background: $color--third;
-        bottom: -30px;
-        left: 0;
+        bottom: 0px;
+        left: -30px;
         position: absolute;
         @media all and (max-width: $break-lg){
           bottom: -20px;

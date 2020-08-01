@@ -2655,36 +2655,34 @@ input[type=checkbox]:checked ~ #overlay-button span:after {
       margin-top: 10px; }
 .b--content blockquote {
   position: relative;
-  margin-bottom: 85px;
-  margin-top: 45px;
-  margin-left: 60px;
+  margin-bottom: 1.5rem;
+  margin-left: 30px;
   width: 65%; }
   @media all and (max-width: 992px) {
     .b--content blockquote {
-      margin-top: 30px;
       margin-bottom: 60px;
       margin-left: 30px; } }
   .b--content blockquote p {
-    font-size: 2.4rem;
+    font-size: 1rem;
     font-weight: normal;
     line-height: 1.1;
     letter-spacing: normal;
-    font-weight: 300;
-    font-style: italic; }
+    font-size: 1.25rem !important;
+    font-weight: 300; }
     @media (max-width: 992px) {
       .b--content blockquote p {
-        font-size: 1.3rem; } }
+        font-size: 0.967rem; } }
     @media all and (max-width: 992px) {
       .b--content blockquote p {
         font-size: 16px;
         line-height: 1.56; } }
     .b--content blockquote p::before {
       content: '';
-      width: 80%;
-      height: 1px;
+      width: 1px;
+      height: 100%;
       background: #ce6e2c;
-      bottom: -30px;
-      left: 0;
+      bottom: 0px;
+      left: -30px;
       position: absolute; }
       @media all and (max-width: 992px) {
         .b--content blockquote p::before {
@@ -2850,9 +2848,15 @@ input[type=checkbox]:checked ~ #overlay-button span:after {
   background-color: transparent;
   color: #252524;
   transition: all 0.3s ease-in-out; }
+  @media (max-width: 992px) {
+    .b--card-third {
+      display: block; } }
   .b--card-third__info {
     width: 60%;
     padding-right: 20px; }
+    @media (max-width: 992px) {
+      .b--card-third__info {
+        width: 100%; } }
     .b--card-third__info__title {
       font-size: 3rem;
       font-weight: 900;
@@ -2873,6 +2877,11 @@ input[type=checkbox]:checked ~ #overlay-button span:after {
   .b--card-third__content {
     width: 40%;
     padding-left: 20px; }
+    @media (max-width: 992px) {
+      .b--card-third__content {
+        width: 100%;
+        padding-left: 0px;
+        padding-top: 20px; } }
     .b--card-third__content__date {
       font-size: 2.4rem;
       font-weight: normal;
@@ -2980,5 +2989,73 @@ input[type=checkbox]:checked ~ #overlay-button span:after {
         .b--page-home__front-items__wrapper > :first-child:after {
           border-width: 0 0 3px 3px;
           border-bottom-left-radius: 35px; } }
+
+.b--field {
+  width: 100%;
+  margin-bottom: 1.5rem; }
+  .b--field__label {
+    color: #ce6e2c;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.1;
+    letter-spacing: normal; }
+    @media (max-width: 992px) {
+      .b--field__label {
+        font-size: 0.967rem; } }
+  .b--field .wpcf7-form-control-wrap .wpcf7-form-control {
+    margin-top: 0.5rem;
+    min-width: 100%;
+    min-height: 2rem;
+    background-color: #cdcdcd;
+    border: 1px solid #ce6e2c;
+    border-radius: 11px;
+    padding: 0px 10px;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.1;
+    letter-spacing: normal;
+    color: #252524; }
+    @media (max-width: 992px) {
+      .b--field .wpcf7-form-control-wrap .wpcf7-form-control {
+        font-size: 0.967rem; } }
+  .b--field .wpcf7-form-control-wrap .wpcf7-radio {
+    background-color: transparent;
+    border: transparent;
+    padding: 0px; }
+    .b--field .wpcf7-form-control-wrap .wpcf7-radio .wpcf7-list-item {
+      display: block;
+      margin: 0px;
+      margin-top: 0.5rem; }
+      .b--field .wpcf7-form-control-wrap .wpcf7-radio .wpcf7-list-item input {
+        cursor: pointer; }
+      .b--field .wpcf7-form-control-wrap .wpcf7-radio .wpcf7-list-item .wpcf7-list-item-label {
+        font-size: 1rem;
+        font-weight: normal;
+        line-height: 1.1;
+        letter-spacing: normal;
+        color: #252524; }
+        @media (max-width: 992px) {
+          .b--field .wpcf7-form-control-wrap .wpcf7-radio .wpcf7-list-item .wpcf7-list-item-label {
+            font-size: 0.967rem; } }
+
+.b--btn-primary, .wpcf7-submit {
+  background-color: #ce6e2c;
+  border: transparent;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out; }
+  @media (max-width: 992px) {
+    .b--btn-primary, .wpcf7-submit {
+      font-size: 0.967rem; } }
+  .b--btn-primary:hover, .wpcf7-submit:hover {
+    border-radius: 20px; }
 
 /*# sourceMappingURL=common.css.map */

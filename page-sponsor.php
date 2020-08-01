@@ -31,6 +31,7 @@ Template Name: Page Sponsor
   <div class="container">
     <div class="row">
       <div class="col-12">
+        <h3 class="f--title f--font-third f--color-third"><?php the_field( 'titulo_de_patrocinadores' ); ?></h3>
         <div class="b--logo-wrapper">
           <?php
             $patrocinadores_args = array(
@@ -41,6 +42,31 @@ Template Name: Page Sponsor
             );
             $patrocinadores_query = new WP_Query($patrocinadores_args);
             while ($patrocinadores_query -> have_posts()): $patrocinadores_query -> the_post(); ?>
+            <div class="b--logo-wrapper__item">
+              <img class="b--logo-wrapper__item__img" src="<?php echo get_the_post_thumbnail_url() ?>" alt="">
+            </div>
+          <?php endwhile; ?>
+          <?php wp_reset_query() ?>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="f--section-third">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h3 class="f--title f--font-third f--color-third"><?php the_field( 'titulo_de_colaboradores' ); ?></h3>
+        <div class="b--logo-wrapper">
+          <?php
+            $colaboradores_args = array(
+              'post_type' => 'colaboradores',
+              'posts_per_page' => 16,
+              'oderby' => 'date',
+              'order' => 'DESC',
+            );
+            $colaboradores_query = new WP_Query($colaboradores_args);
+            while ($colaboradores_query -> have_posts()): $colaboradores_query -> the_post(); ?>
             <div class="b--logo-wrapper__item">
               <img class="b--logo-wrapper__item__img" src="<?php echo get_the_post_thumbnail_url() ?>" alt="">
             </div>
